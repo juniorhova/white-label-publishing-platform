@@ -83,6 +83,9 @@ If deploying with the included Dockerfile, enable Coolify's build-secret support
 for the same variables because Payload/Next needs them during `pnpm build`.
 They must also remain available as runtime variables for `pnpm start`.
 
+The Docker image exposes `/api/health` and includes a container health check for
+Coolify. Use the same endpoint if configuring a health check manually.
+
 ## Payload Admin SSO
 
 Payload email/password remains available as a break-glass fallback for the owner
