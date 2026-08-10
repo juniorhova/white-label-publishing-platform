@@ -5,6 +5,13 @@ declare global {
       DATABASE_URL: string
       NEXT_PUBLIC_SERVER_URL: string
       VERCEL_PROJECT_PRODUCTION_URL: string
+      ENTRA_TENANT_ID: string
+      ENTRA_CLIENT_ID: string
+      ENTRA_CLIENT_SECRET: string
+      ENTRA_REDIRECT_URI: string
+      ENTRA_ALLOWED_EMAILS: string
+      ENTRA_VALIDATE_MFA_CLAIM: string
+      PAYLOAD_PASSWORD_LOGIN_ALLOWED_EMAILS: string
     }
   }
 }

@@ -53,6 +53,10 @@ COPY --chown=nextjs:nodejs package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY --from=deps --chown=nextjs:nodejs /app/node_modules ./node_modules
 COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
+COPY --from=builder --chown=nextjs:nodejs /app/src ./src
+COPY --from=builder --chown=nextjs:nodejs /app/tsconfig.json ./tsconfig.json
+COPY --from=builder --chown=nextjs:nodejs /app/next.config.ts ./next.config.ts
+COPY --from=builder --chown=nextjs:nodejs /app/redirects.ts ./redirects.ts
 
 USER nextjs
 
@@ -60,4 +64,4 @@ EXPOSE 3000
 
 ENV PORT=3000
 
-CMD ["pnpm", "start"]
+CMD ["sh", "-c", "pnpm migrate && pnpm start"]
