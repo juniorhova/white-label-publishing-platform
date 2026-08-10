@@ -71,6 +71,9 @@ importers:
       graphql:
         specifier: ^16.8.2
         version: 16.14.2
+      jose:
+        specifier: 5.10.0
+        version: 5.10.0
       lucide-react:
         specifier: 0.563.0
         version: 0.563.0(react@19.2.6)
