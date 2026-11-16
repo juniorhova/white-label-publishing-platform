@@ -34,14 +34,15 @@ export default buildConfig({
     },
     meta: {
       icons: [
+        { rel: 'apple-touch-icon', url: '/apple-touch-icon-jh.png' },
         {
           rel: 'icon',
-          url: '/favicon.ico?v=jh',
+          url: '/favicon-jh.ico',
         },
         {
           rel: 'icon',
           type: 'image/svg+xml',
-          url: '/favicon.svg?v=jh',
+          url: '/favicon-jh.svg',
         },
       ],
     },
