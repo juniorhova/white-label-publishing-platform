@@ -1,0 +1,1581 @@
+[
+  {
+    "blockType": "content",
+    "appearance": "about",
+    "sectionTitle": "Sobre mim",
+    "columns": [
+      {
+        "size": "half",
+        "richText": {
+          "root": {
+            "type": "root",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "direction": "ltr",
+            "children": [
+              {
+                "type": "paragraph",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "direction": "ltr",
+                "children": [
+                  {
+                    "type": "text",
+                    "version": 1,
+                    "text": "Sou Junior Hova, engenheiro Cloud e DevOps. Trabalho com infraestrutura em nuvem e automação e compartilho aqui o que aprendo na prática.",
+                    "format": 0,
+                    "detail": 0,
+                    "mode": "normal",
+                    "style": ""
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "size": "half",
+        "richText": {
+          "root": {
+            "type": "root",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "direction": "ltr",
+            "children": [
+              {
+                "type": "paragraph",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "direction": "ltr",
+                "children": [
+                  {
+                    "type": "text",
+                    "version": 1,
+                    "text": "Tecnologia, aprendizado e carreira.",
+                    "format": 0,
+                    "detail": 0,
+                    "mode": "normal",
+                    "style": ""
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "blockType": "content",
+    "appearance": "timeline",
+    "sectionTitle": "Minha trajetória",
+    "columns": [
+      {
+        "size": "half",
+        "richText": {
+          "root": {
+            "type": "root",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "direction": "ltr",
+            "children": [
+              {
+                "type": "heading",
+                "tag": "h3",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "direction": "ltr",
+                "children": [
+                  {
+                    "type": "text",
+                    "version": 1,
+                    "text": "Qubika",
+                    "format": 0,
+                    "detail": 0,
+                    "mode": "normal",
+                    "style": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "direction": "ltr",
+                "children": [
+                  {
+                    "type": "text",
+                    "version": 1,
+                    "text": "Minha etapa atual em uma empresa internacional.",
+                    "format": 0,
+                    "detail": 0,
+                    "mode": "normal",
+                    "style": ""
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "enableLink": true,
+        "link": {
+          "type": "custom",
+          "url": "https://www.linkedin.com/in/airtonhovajunior/",
+          "label": "Perfil profissional ↗",
+          "newTab": true
+        }
+      },
+      {
+        "size": "half",
+        "richText": {
+          "root": {
+            "type": "root",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "direction": "ltr",
+            "children": [
+              {
+                "type": "heading",
+                "tag": "h3",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "direction": "ltr",
+                "children": [
+                  {
+                    "type": "text",
+                    "version": 1,
+                    "text": "Rodobens",
+                    "format": 0,
+                    "detail": 0,
+                    "mode": "normal",
+                    "style": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "direction": "ltr",
+                "children": [
+                  {
+                    "type": "text",
+                    "version": 1,
+                    "text": "Mais de oito anos de trajetória, com desafios, aprendizados e colaboração com diferentes equipes.",
+                    "format": 0,
+                    "detail": 0,
+                    "mode": "normal",
+                    "style": ""
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "enableLink": true,
+        "link": {
+          "type": "custom",
+          "url": "https://www.linkedin.com/in/airtonhovajunior/",
+          "label": "Mais no LinkedIn ↗",
+          "newTab": true
+        }
+      }
+    ]
+  },
+  {
+    "blockType": "content",
+    "appearance": "roadmap",
+    "sectionTitle": "Meu roadmap de estudos DevOps",
+    "columns": [
+      {
+        "size": "half",
+        "week": 1,
+        "stageGroup": "Fundamentos",
+        "weeklyGoal": "Navegar pelo sistema e trabalhar sem depender da interface gráfica.",
+        "practice": "Criar uma pasta de laboratório, organizar arquivos e registrar comandos em um README.",
+        "richText": {
+          "root": {
+            "type": "root",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "direction": "ltr",
+            "children": [
+              {
+                "type": "heading",
+                "tag": "h3",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "direction": "ltr",
+                "children": [
+                  {
+                    "type": "text",
+                    "version": 1,
+                    "text": "Linux e linha de comando",
+                    "format": 0,
+                    "detail": 0,
+                    "mode": "normal",
+                    "style": ""
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "topics": [
+          {
+            "label": "Terminal e navegação",
+            "description": "O terminal é uma interface de texto para executar comandos, navegar por diretórios e administrar servidores.",
+            "resourceTitle": "Terminal Knowledge · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/terminal-knowledge@wjJPzrFJBNYOD3SJLzW2M"
+          },
+          {
+            "label": "Arquivos e permissões",
+            "description": "Arquivos, diretórios e permissões definem como os dados são organizados e quem pode acessá-los em um sistema.",
+            "resourceTitle": "Text Manipulation · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/text-manipulation@cUifrP7v55psTb20IZndf"
+          },
+          {
+            "label": "Ajuda e documentação",
+            "description": "A documentação de comandos explica opções, exemplos e comportamentos, e ajuda a trabalhar com autonomia no terminal.",
+            "resourceTitle": "Operating System · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/operating-system@qe84v529VbCyydl0BKFk2"
+          }
+        ]
+      },
+      {
+        "size": "half",
+        "week": 2,
+        "stageGroup": "Fundamentos",
+        "weeklyGoal": "Entender como uma aplicação roda e como investigar sua execução.",
+        "practice": "Executar um serviço local e registrar processo, porta, consumo e logs.",
+        "richText": {
+          "root": {
+            "type": "root",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "direction": "ltr",
+            "children": [
+              {
+                "type": "heading",
+                "tag": "h3",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "direction": "ltr",
+                "children": [
+                  {
+                    "type": "text",
+                    "version": 1,
+                    "text": "Processos, serviços e sistema",
+                    "format": 0,
+                    "detail": 0,
+                    "mode": "normal",
+                    "style": ""
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "topics": [
+          {
+            "label": "Processos e sinais",
+            "description": "Um processo é um programa em execução. Monitorar seus estados e sinais ajuda a identificar travamentos e controlar serviços.",
+            "resourceTitle": "Process Monitoring · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/process-monitoring@x-JWvG1iw86ULL9KrQmRu"
+          },
+          {
+            "label": "CPU, memória e disco",
+            "description": "CPU, memória e disco são recursos que limitam o desempenho. Suas métricas ajudam a localizar gargalos antes de alterar configurações.",
+            "resourceTitle": "Performance Monitoring · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/performance-monitoring@gIEQDgKOsoEnSv8mpEzGH"
+          },
+          {
+            "label": "Serviços e logs",
+            "description": "Serviços mantêm aplicações e funções do sistema em execução. Seus registros ajudam a entender inicialização, falhas e recuperação.",
+            "resourceTitle": "Operating System · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/operating-system@qe84v529VbCyydl0BKFk2"
+          }
+        ]
+      },
+      {
+        "size": "half",
+        "week": 3,
+        "stageGroup": "Fundamentos",
+        "weeklyGoal": "Seguir o caminho de uma requisição entre cliente e servidor.",
+        "practice": "Desenhar o fluxo DNS → conexão → HTTP e inspecionar uma requisição com curl.",
+        "richText": {
+          "root": {
+            "type": "root",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "direction": "ltr",
+            "children": [
+              {
+                "type": "heading",
+                "tag": "h3",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "direction": "ltr",
+                "children": [
+                  {
+                    "type": "text",
+                    "version": 1,
+                    "text": "Redes, DNS e HTTP",
+                    "format": 0,
+                    "detail": 0,
+                    "mode": "normal",
+                    "style": ""
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "topics": [
+          {
+            "label": "IP, portas e conectividade",
+            "description": "Endereços IP, portas e rotas permitem que sistemas se comuniquem. Ferramentas de rede ajudam a testar cada parte dessa comunicação.",
+            "resourceTitle": "Networking Tools · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/networking-tools@OaqKLZe-XnngcDhDzCtRt"
+          },
+          {
+            "label": "DNS e resolução de nomes",
+            "description": "DNS traduz nomes de domínio em registros usados para localizar serviços. Uma falha de resolução pode impedir acesso mesmo quando a rede funciona.",
+            "resourceTitle": "DNS · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/dns@Vu955vdsYerCG8G6suqml"
+          },
+          {
+            "label": "HTTP e TLS",
+            "description": "HTTP define a comunicação entre clientes e servidores. Métodos, códigos de resposta e cabeçalhos ajudam a compreender uma requisição.",
+            "resourceTitle": "HTTP · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/http@ke-8MeuLx7AS2XjSsPhxe"
+          }
+        ]
+      },
+      {
+        "size": "half",
+        "week": 4,
+        "stageGroup": "Fundamentos",
+        "weeklyGoal": "Versionar mudanças pequenas e manter um histórico compreensível.",
+        "practice": "Criar um repositório de laboratório com branches, revisão e resolução de um conflito.",
+        "richText": {
+          "root": {
+            "type": "root",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "direction": "ltr",
+            "children": [
+              {
+                "type": "heading",
+                "tag": "h3",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "direction": "ltr",
+                "children": [
+                  {
+                    "type": "text",
+                    "version": 1,
+                    "text": "Git e colaboração",
+                    "format": 0,
+                    "detail": 0,
+                    "mode": "normal",
+                    "style": ""
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "topics": [
+          {
+            "label": "Commits e branches",
+            "description": "Git registra versões do código e permite desenvolver mudanças em branches, mantendo um histórico que pode ser comparado e revisado.",
+            "resourceTitle": "Git · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/git@uyDm1SpOQdpHjq9zBAdck"
+          },
+          {
+            "label": "Merge e conflitos",
+            "description": "Um merge combina históricos. Conflitos surgem quando mudanças concorrentes precisam de uma decisão sobre o conteúdo final.",
+            "resourceTitle": "Git · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/git@uyDm1SpOQdpHjq9zBAdck"
+          },
+          {
+            "label": "Revisão e histórico",
+            "description": "A revisão de mudanças usa o histórico e as diferenças entre versões para avaliar intenção, impacto e possíveis problemas.",
+            "resourceTitle": "Git · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/git@uyDm1SpOQdpHjq9zBAdck"
+          }
+        ]
+      },
+      {
+        "size": "half",
+        "week": 5,
+        "stageGroup": "Automação e contêineres",
+        "weeklyGoal": "Transformar uma rotina repetitiva em um script verificável.",
+        "practice": "Escrever um script de diagnóstico que falhe com clareza quando um comando der erro.",
+        "richText": {
+          "root": {
+            "type": "root",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "direction": "ltr",
+            "children": [
+              {
+                "type": "heading",
+                "tag": "h3",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "direction": "ltr",
+                "children": [
+                  {
+                    "type": "text",
+                    "version": 1,
+                    "text": "Shell e automação",
+                    "format": 0,
+                    "detail": 0,
+                    "mode": "normal",
+                    "style": ""
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "topics": [
+          {
+            "label": "Variáveis e argumentos",
+            "description": "Variáveis guardam valores e argumentos tornam scripts reutilizáveis. Aspas e expansão precisam de cuidado para preservar o conteúdo das entradas.",
+            "resourceTitle": "Bash · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/bash@syBIAL1mHbJLnTBoSxXI7"
+          },
+          {
+            "label": "Condições e repetição",
+            "description": "Condições e laços permitem que um script tome decisões e repita tarefas, reduzindo operações manuais.",
+            "resourceTitle": "Bash · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/bash@syBIAL1mHbJLnTBoSxXI7"
+          },
+          {
+            "label": "Saída e tratamento de erros",
+            "description": "Códigos de saída e mensagens de erro indicam o resultado de comandos e ajudam a interromper uma automação quando algo falha.",
+            "resourceTitle": "Bash · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/bash@syBIAL1mHbJLnTBoSxXI7"
+          }
+        ]
+      },
+      {
+        "size": "half",
+        "week": 6,
+        "stageGroup": "Automação e contêineres",
+        "weeklyGoal": "Manipular dados e chamar serviços em uma automação pequena.",
+        "practice": "Criar uma ferramenta que leia JSON e produza um relatório de verificação local.",
+        "richText": {
+          "root": {
+            "type": "root",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "direction": "ltr",
+            "children": [
+              {
+                "type": "heading",
+                "tag": "h3",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "direction": "ltr",
+                "children": [
+                  {
+                    "type": "text",
+                    "version": 1,
+                    "text": "Python para operações",
+                    "format": 0,
+                    "detail": 0,
+                    "mode": "normal",
+                    "style": ""
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "topics": [
+          {
+            "label": "Estruturas e funções",
+            "description": "Funções e estruturas de dados permitem organizar automações em partes pequenas, reutilizáveis e mais fáceis de entender.",
+            "resourceTitle": "Python · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/python@TwVfCYMS9jSaJ6UyYmC-K"
+          },
+          {
+            "label": "Arquivos e JSON",
+            "description": "JSON representa dados estruturados. Ler e produzir arquivos nesse formato facilita integrar ferramentas e gerar relatórios.",
+            "resourceTitle": "Python · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/python@TwVfCYMS9jSaJ6UyYmC-K"
+          },
+          {
+            "label": "Exceções e configuração",
+            "description": "Exceções representam falhas que precisam de tratamento. Configurações devem ser separadas do código, especialmente quando contêm informações sensíveis.",
+            "resourceTitle": "Python · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/python@TwVfCYMS9jSaJ6UyYmC-K"
+          }
+        ]
+      },
+      {
+        "size": "half",
+        "week": 7,
+        "stageGroup": "Automação e contêineres",
+        "weeklyGoal": "Publicar uma aplicação local por um proxy e controlar acessos.",
+        "practice": "Configurar um proxy local e documentar portas, logs e regras de acesso.",
+        "richText": {
+          "root": {
+            "type": "root",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "direction": "ltr",
+            "children": [
+              {
+                "type": "heading",
+                "tag": "h3",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "direction": "ltr",
+                "children": [
+                  {
+                    "type": "text",
+                    "version": 1,
+                    "text": "Servidores web e acesso seguro",
+                    "format": 0,
+                    "detail": 0,
+                    "mode": "normal",
+                    "style": ""
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "topics": [
+          {
+            "label": "Servidor e reverse proxy",
+            "description": "Um reverse proxy recebe conexões e encaminha requisições para uma aplicação, centralizando a entrada do serviço.",
+            "resourceTitle": "Reverse Proxy · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/reverse-proxy@eGF7iyigl57myx2ejpmNC"
+          },
+          {
+            "label": "SSH e privilégios",
+            "description": "SSH permite administrar sistemas remotamente com uma conexão protegida. Chaves e privilégios limitados ajudam a controlar esse acesso.",
+            "resourceTitle": "SSH · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/ssh@wcIRMLVm3SdEJWF9RPfn7"
+          },
+          {
+            "label": "TLS e configuração",
+            "description": "TLS protege a comunicação em trânsito. Certificados permitem verificar a identidade do serviço e estabelecer conexões HTTPS.",
+            "resourceTitle": "SSL / TLS · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/ssl-tls@0o6ejhfpmO4S8A6djVWva"
+          }
+        ]
+      },
+      {
+        "size": "half",
+        "week": 8,
+        "stageGroup": "Automação e contêineres",
+        "weeklyGoal": "Entender o ciclo de vida de uma aplicação em contêiner.",
+        "practice": "Rodar uma aplicação local em Docker e documentar início, inspeção e remoção.",
+        "richText": {
+          "root": {
+            "type": "root",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "direction": "ltr",
+            "children": [
+              {
+                "type": "heading",
+                "tag": "h3",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "direction": "ltr",
+                "children": [
+                  {
+                    "type": "text",
+                    "version": 1,
+                    "text": "Docker: primeiros contêineres",
+                    "format": 0,
+                    "detail": 0,
+                    "mode": "normal",
+                    "style": ""
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "topics": [
+          {
+            "label": "Imagens e contêineres",
+            "description": "Uma imagem contém o necessário para iniciar a aplicação; um contêiner é uma instância dessa imagem em execução.",
+            "resourceTitle": "Containers · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/containers@CQhUflAcv1lhBnmDY0gaz"
+          },
+          {
+            "label": "Portas e redes",
+            "description": "Redes de contêineres permitem comunicação entre serviços. A publicação de portas controla como uma aplicação é acessada fora do contêiner.",
+            "resourceTitle": "Docker · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/docker@P0acFNZ413MSKElHqCxr3"
+          },
+          {
+            "label": "Volumes e dados",
+            "description": "Volumes separam os dados do ciclo de vida do contêiner, permitindo preservar informações quando ele é recriado.",
+            "resourceTitle": "Docker · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/docker@P0acFNZ413MSKElHqCxr3"
+          }
+        ]
+      },
+      {
+        "size": "half",
+        "week": 9,
+        "stageGroup": "Entrega e infraestrutura",
+        "weeklyGoal": "Construir imagens menores e previsíveis.",
+        "practice": "Criar um Dockerfile com build em etapas e demonstrar o efeito do cache.",
+        "richText": {
+          "root": {
+            "type": "root",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "direction": "ltr",
+            "children": [
+              {
+                "type": "heading",
+                "tag": "h3",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "direction": "ltr",
+                "children": [
+                  {
+                    "type": "text",
+                    "version": 1,
+                    "text": "Builds e imagens Docker",
+                    "format": 0,
+                    "detail": 0,
+                    "mode": "normal",
+                    "style": ""
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "topics": [
+          {
+            "label": "Dockerfile e contexto",
+            "description": "O Dockerfile descreve como construir uma imagem. O contexto de build define quais arquivos estão disponíveis durante essa construção.",
+            "resourceTitle": "Docker · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/docker@P0acFNZ413MSKElHqCxr3"
+          },
+          {
+            "label": "Cache e multi-stage",
+            "description": "O cache reaproveita etapas de build, e builds em múltiplos estágios ajudam a separar compilação e execução.",
+            "resourceTitle": "Docker · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/docker@P0acFNZ413MSKElHqCxr3"
+          },
+          {
+            "label": "Usuário e dependências",
+            "description": "O usuário e as dependências de uma imagem influenciam sua segurança e previsibilidade. A imagem deve conter somente o necessário para executar a aplicação.",
+            "resourceTitle": "Docker · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/docker@P0acFNZ413MSKElHqCxr3"
+          }
+        ]
+      },
+      {
+        "size": "half",
+        "week": 10,
+        "stageGroup": "Entrega e infraestrutura",
+        "weeklyGoal": "Executar serviços conectados em um ambiente reproduzível.",
+        "practice": "Subir aplicação e banco local com Compose, verificando saúde e persistência.",
+        "richText": {
+          "root": {
+            "type": "root",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "direction": "ltr",
+            "children": [
+              {
+                "type": "heading",
+                "tag": "h3",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "direction": "ltr",
+                "children": [
+                  {
+                    "type": "text",
+                    "version": 1,
+                    "text": "Compose e ambientes locais",
+                    "format": 0,
+                    "detail": 0,
+                    "mode": "normal",
+                    "style": ""
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "topics": [
+          {
+            "label": "Serviços e dependências",
+            "description": "Compose descreve uma aplicação com vários serviços em um arquivo, facilitando reproduzir um ambiente local.",
+            "resourceTitle": "Docker · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/docker@P0acFNZ413MSKElHqCxr3"
+          },
+          {
+            "label": "Redes, volumes e configuração",
+            "description": "Redes, volumes e variáveis configuram a comunicação e a persistência dos serviços de um ambiente com contêineres.",
+            "resourceTitle": "Docker · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/docker@P0acFNZ413MSKElHqCxr3"
+          },
+          {
+            "label": "Health checks e diagnóstico",
+            "description": "Verificações de saúde e logs ajudam a distinguir um serviço iniciado de um serviço realmente pronto para receber requisições.",
+            "resourceTitle": "Docker · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/docker@P0acFNZ413MSKElHqCxr3"
+          }
+        ]
+      },
+      {
+        "size": "half",
+        "week": 11,
+        "stageGroup": "Entrega e infraestrutura",
+        "weeklyGoal": "Verificar automaticamente mudanças antes de integrá-las.",
+        "practice": "Criar uma pipeline de testes e build para o repositório de laboratório.",
+        "richText": {
+          "root": {
+            "type": "root",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "direction": "ltr",
+            "children": [
+              {
+                "type": "heading",
+                "tag": "h3",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "direction": "ltr",
+                "children": [
+                  {
+                    "type": "text",
+                    "version": 1,
+                    "text": "Integração contínua",
+                    "format": 0,
+                    "detail": 0,
+                    "mode": "normal",
+                    "style": ""
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "topics": [
+          {
+            "label": "Eventos, jobs e steps",
+            "description": "Uma pipeline combina eventos, jobs e etapas para executar verificações automaticamente quando o código muda.",
+            "resourceTitle": "GitHub Actions · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/github-actions@JnWVCS1HbAyfCJzGt-WOH"
+          },
+          {
+            "label": "Testes e artefatos",
+            "description": "Testes detectam regressões, enquanto artefatos preservam os resultados do build para uso nas próximas etapas da entrega.",
+            "resourceTitle": "CI / CD Tools · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/ci-cd-tools@aQJaouIaxIJChM-40M3HQ"
+          },
+          {
+            "label": "Permissões e segredos",
+            "description": "Credenciais e permissões de uma pipeline precisam de escopo limitado. Segredos devem ser administrados fora dos arquivos versionados.",
+            "resourceTitle": "Secret Management · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/secret-management@hcrPpjFxPi_iLiMdLKJrO"
+          }
+        ]
+      },
+      {
+        "size": "half",
+        "week": 12,
+        "stageGroup": "Entrega e infraestrutura",
+        "weeklyGoal": "Planejar implantações rastreáveis e reversíveis.",
+        "practice": "Simular promoção de uma versão em ambiente local e retorno à versão anterior.",
+        "richText": {
+          "root": {
+            "type": "root",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "direction": "ltr",
+            "children": [
+              {
+                "type": "heading",
+                "tag": "h3",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "direction": "ltr",
+                "children": [
+                  {
+                    "type": "text",
+                    "version": 1,
+                    "text": "Entrega e rollback",
+                    "format": 0,
+                    "detail": 0,
+                    "mode": "normal",
+                    "style": ""
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "topics": [
+          {
+            "label": "Versões e promoção",
+            "description": "Promover uma versão significa levar um artefato identificado entre ambientes, preservando sua rastreabilidade.",
+            "resourceTitle": "CI / CD Tools · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/ci-cd-tools@aQJaouIaxIJChM-40M3HQ"
+          },
+          {
+            "label": "Estratégias de implantação",
+            "description": "Estratégias de implantação controlam como uma nova versão recebe tráfego e ajudam a reduzir o impacto de falhas.",
+            "resourceTitle": "CI / CD Tools · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/ci-cd-tools@aQJaouIaxIJChM-40M3HQ"
+          },
+          {
+            "label": "Verificação e rollback",
+            "description": "Rollback é o retorno a uma versão anterior. Ele depende de critérios claros de falha e de um caminho de recuperação conhecido.",
+            "resourceTitle": "Availability · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/availability@JCe3fcOf-sokTJURyX1oI"
+          }
+        ]
+      },
+      {
+        "size": "half",
+        "week": 13,
+        "stageGroup": "Nuvem e configuração",
+        "weeklyGoal": "Relacionar recursos de nuvem com rede, identidade e operação.",
+        "practice": "Desenhar uma arquitetura pequena em Azure e estimar seus custos, sem criar recursos pagos.",
+        "richText": {
+          "root": {
+            "type": "root",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "direction": "ltr",
+            "children": [
+              {
+                "type": "heading",
+                "tag": "h3",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "direction": "ltr",
+                "children": [
+                  {
+                    "type": "text",
+                    "version": 1,
+                    "text": "Nuvem: fundamentos com Azure",
+                    "format": 0,
+                    "detail": 0,
+                    "mode": "normal",
+                    "style": ""
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "topics": [
+          {
+            "label": "Identidade e permissões",
+            "description": "Identidades, funções e escopos determinam quem pode acessar e modificar recursos de uma plataforma de nuvem.",
+            "resourceTitle": "Azure · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/azure@ctor79Vd7EXDMdrLyUcu_"
+          },
+          {
+            "label": "Rede, computação e armazenamento",
+            "description": "Rede, computação e armazenamento são blocos básicos de uma arquitetura de nuvem, escolhidos conforme as necessidades da aplicação.",
+            "resourceTitle": "Cloud Providers · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/cloud-providers@2Wd9SlWGg6QtxgiUVLyZL"
+          },
+          {
+            "label": "Custos e responsabilidade",
+            "description": "O modelo de responsabilidade compartilhada divide obrigações entre provedor e cliente. As escolhas de recursos também afetam os custos de operação.",
+            "resourceTitle": "Cloud Design Patterns · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/cloud-design-patterns@Qc0MGR5bMG9eeM5Zb9PMk"
+          }
+        ]
+      },
+      {
+        "size": "half",
+        "week": 14,
+        "stageGroup": "Nuvem e configuração",
+        "weeklyGoal": "Descrever infraestrutura e revisar mudanças antes de aplicá-las.",
+        "practice": "Executar um tutorial local de Terraform e revisar o plano gerado.",
+        "richText": {
+          "root": {
+            "type": "root",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "direction": "ltr",
+            "children": [
+              {
+                "type": "heading",
+                "tag": "h3",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "direction": "ltr",
+                "children": [
+                  {
+                    "type": "text",
+                    "version": 1,
+                    "text": "Terraform: infraestrutura como código",
+                    "format": 0,
+                    "detail": 0,
+                    "mode": "normal",
+                    "style": ""
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "topics": [
+          {
+            "label": "Providers e recursos",
+            "description": "Um provider conecta o Terraform a uma plataforma, enquanto recursos descrevem os componentes que devem ser administrados.",
+            "resourceTitle": "Terraform · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/terraform@nUBGf1rp9GK_pbagWCP9g"
+          },
+          {
+            "label": "Variáveis e outputs",
+            "description": "Variáveis parametrizam uma configuração, e outputs expõem valores que outras partes da infraestrutura podem utilizar.",
+            "resourceTitle": "Terraform · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/terraform@nUBGf1rp9GK_pbagWCP9g"
+          },
+          {
+            "label": "Plan e apply",
+            "description": "O plan mostra as mudanças propostas pelo Terraform; o apply executa essas mudanças na infraestrutura administrada.",
+            "resourceTitle": "Terraform · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/terraform@nUBGf1rp9GK_pbagWCP9g"
+          }
+        ]
+      },
+      {
+        "size": "half",
+        "week": 15,
+        "stageGroup": "Nuvem e configuração",
+        "weeklyGoal": "Organizar configurações e compreender o papel do estado.",
+        "practice": "Separar uma configuração em módulo e documentar estado, acesso e recuperação.",
+        "richText": {
+          "root": {
+            "type": "root",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "direction": "ltr",
+            "children": [
+              {
+                "type": "heading",
+                "tag": "h3",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "direction": "ltr",
+                "children": [
+                  {
+                    "type": "text",
+                    "version": 1,
+                    "text": "Estado e módulos Terraform",
+                    "format": 0,
+                    "detail": 0,
+                    "mode": "normal",
+                    "style": ""
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "topics": [
+          {
+            "label": "Estado e informações sensíveis",
+            "description": "O estado associa a configuração aos recursos administrados. Como pode conter informações sensíveis, precisa de proteção e controle de acesso.",
+            "resourceTitle": "Terraform · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/terraform@nUBGf1rp9GK_pbagWCP9g"
+          },
+          {
+            "label": "Módulos e reutilização",
+            "description": "Módulos agrupam configurações relacionadas e permitem reutilizar infraestrutura por meio de entradas e saídas explícitas.",
+            "resourceTitle": "Terraform · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/terraform@nUBGf1rp9GK_pbagWCP9g"
+          },
+          {
+            "label": "Drift e colaboração",
+            "description": "Drift é uma divergência entre a configuração e o ambiente real. O trabalho em equipe também exige coordenação sobre o estado.",
+            "resourceTitle": "Terraform · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/terraform@nUBGf1rp9GK_pbagWCP9g"
+          }
+        ]
+      },
+      {
+        "size": "half",
+        "week": 16,
+        "stageGroup": "Nuvem e configuração",
+        "weeklyGoal": "Aplicar configurações repetíveis sem acumular passos manuais.",
+        "practice": "Criar um playbook para configurar o laboratório e demonstrar uma segunda execução idempotente.",
+        "richText": {
+          "root": {
+            "type": "root",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "direction": "ltr",
+            "children": [
+              {
+                "type": "heading",
+                "tag": "h3",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "direction": "ltr",
+                "children": [
+                  {
+                    "type": "text",
+                    "version": 1,
+                    "text": "Ansible e configuração",
+                    "format": 0,
+                    "detail": 0,
+                    "mode": "normal",
+                    "style": ""
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "topics": [
+          {
+            "label": "Inventário e conexão",
+            "description": "O inventário do Ansible identifica os sistemas que serão configurados e pode organizá-los por grupos e variáveis.",
+            "resourceTitle": "Ansible · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/ansible@h9vVPOmdUSeEGVQQaSTH5"
+          },
+          {
+            "label": "Playbooks e módulos",
+            "description": "Playbooks descrevem tarefas e estados desejados. Módulos executam ações específicas, como gerenciar pacotes, arquivos e serviços.",
+            "resourceTitle": "Ansible · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/ansible@h9vVPOmdUSeEGVQQaSTH5"
+          },
+          {
+            "label": "Idempotência e organização",
+            "description": "Uma tarefa idempotente pode ser executada novamente sem produzir mudanças desnecessárias quando o estado desejado já foi alcançado.",
+            "resourceTitle": "Ansible · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/ansible@h9vVPOmdUSeEGVQQaSTH5"
+          }
+        ]
+      },
+      {
+        "size": "half",
+        "week": 17,
+        "stageGroup": "Kubernetes e plataforma",
+        "weeklyGoal": "Relacionar o estado declarado à execução de aplicações.",
+        "practice": "Usar um cluster local para criar um Deployment e recuperar uma réplica removida.",
+        "richText": {
+          "root": {
+            "type": "root",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "direction": "ltr",
+            "children": [
+              {
+                "type": "heading",
+                "tag": "h3",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "direction": "ltr",
+                "children": [
+                  {
+                    "type": "text",
+                    "version": 1,
+                    "text": "Kubernetes: fundamentos",
+                    "format": 0,
+                    "detail": 0,
+                    "mode": "normal",
+                    "style": ""
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "topics": [
+          {
+            "label": "Cluster e reconciliação",
+            "description": "Kubernetes compara o estado declarado com o estado real e usa controladores para manter os workloads conforme a configuração.",
+            "resourceTitle": "Kubernetes · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/kubernetes@hIBeTUiAI3zwUY6NgAO-A"
+          },
+          {
+            "label": "Pods e Deployments",
+            "description": "Pods executam contêineres, e Deployments administram réplicas e atualizações de aplicações.",
+            "resourceTitle": "Kubernetes · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/kubernetes@hIBeTUiAI3zwUY6NgAO-A"
+          },
+          {
+            "label": "kubectl e diagnóstico",
+            "description": "Logs, eventos e descrição de recursos oferecem pistas sobre o estado de uma aplicação e os motivos de uma falha no cluster.",
+            "resourceTitle": "Kubernetes · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/kubernetes@hIBeTUiAI3zwUY6NgAO-A"
+          }
+        ]
+      },
+      {
+        "size": "half",
+        "week": 18,
+        "stageGroup": "Kubernetes e plataforma",
+        "weeklyGoal": "Expor aplicações e investigar comunicação entre serviços.",
+        "practice": "Conectar dois serviços locais e documentar como uma requisição chega à aplicação.",
+        "richText": {
+          "root": {
+            "type": "root",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "direction": "ltr",
+            "children": [
+              {
+                "type": "heading",
+                "tag": "h3",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "direction": "ltr",
+                "children": [
+                  {
+                    "type": "text",
+                    "version": 1,
+                    "text": "Rede no Kubernetes",
+                    "format": 0,
+                    "detail": 0,
+                    "mode": "normal",
+                    "style": ""
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "topics": [
+          {
+            "label": "Services e descoberta",
+            "description": "Um Service oferece um ponto de acesso estável para um conjunto de Pods, mesmo quando suas instâncias mudam.",
+            "resourceTitle": "Kubernetes · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/kubernetes@hIBeTUiAI3zwUY6NgAO-A"
+          },
+          {
+            "label": "Ingress e entrada HTTP",
+            "description": "A entrada HTTP direciona tráfego externo aos serviços do cluster por regras de roteamento e componentes de entrada.",
+            "resourceTitle": "Kubernetes · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/kubernetes@hIBeTUiAI3zwUY6NgAO-A"
+          },
+          {
+            "label": "Políticas de rede",
+            "description": "Políticas de rede descrevem quais comunicações são permitidas entre workloads, quando suportadas pela solução de rede do cluster.",
+            "resourceTitle": "Kubernetes · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/kubernetes@hIBeTUiAI3zwUY6NgAO-A"
+          }
+        ]
+      },
+      {
+        "size": "half",
+        "week": 19,
+        "stageGroup": "Kubernetes e plataforma",
+        "weeklyGoal": "Operar workloads com configuração e recursos explícitos.",
+        "practice": "Adicionar configuração, probes e limites a um workload local e simular uma falha.",
+        "richText": {
+          "root": {
+            "type": "root",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "direction": "ltr",
+            "children": [
+              {
+                "type": "heading",
+                "tag": "h3",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "direction": "ltr",
+                "children": [
+                  {
+                    "type": "text",
+                    "version": 1,
+                    "text": "Configuração, saúde e persistência",
+                    "format": 0,
+                    "detail": 0,
+                    "mode": "normal",
+                    "style": ""
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "topics": [
+          {
+            "label": "ConfigMaps e Secrets",
+            "description": "ConfigMaps armazenam configuração não sensível, enquanto Secrets representam dados que exigem tratamento e acesso mais restritos.",
+            "resourceTitle": "Secret Management · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/secret-management@hcrPpjFxPi_iLiMdLKJrO"
+          },
+          {
+            "label": "Probes e recursos",
+            "description": "Probes verificam saúde e prontidão. Requests e limits descrevem as necessidades e os limites de recursos dos contêineres.",
+            "resourceTitle": "Kubernetes · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/kubernetes@hIBeTUiAI3zwUY6NgAO-A"
+          },
+          {
+            "label": "Volumes e persistência",
+            "description": "Volumes persistentes permitem que os dados tenham um ciclo de vida diferente dos Pods que os utilizam.",
+            "resourceTitle": "Kubernetes · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/kubernetes@hIBeTUiAI3zwUY6NgAO-A"
+          }
+        ]
+      },
+      {
+        "size": "half",
+        "week": 20,
+        "stageGroup": "Kubernetes e plataforma",
+        "weeklyGoal": "Organizar a implantação de uma aplicação no cluster local.",
+        "practice": "Empacotar o laboratório em um chart e praticar upgrade e rollback.",
+        "richText": {
+          "root": {
+            "type": "root",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "direction": "ltr",
+            "children": [
+              {
+                "type": "heading",
+                "tag": "h3",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "direction": "ltr",
+                "children": [
+                  {
+                    "type": "text",
+                    "version": 1,
+                    "text": "Helm e operação de releases",
+                    "format": 0,
+                    "detail": 0,
+                    "mode": "normal",
+                    "style": ""
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "topics": [
+          {
+            "label": "Charts e values",
+            "description": "Helm organiza recursos Kubernetes em charts. Valores permitem ajustar a configuração de uma instalação sem duplicar todos os manifestos.",
+            "resourceTitle": "Kubernetes · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/kubernetes@hIBeTUiAI3zwUY6NgAO-A"
+          },
+          {
+            "label": "Instalação e upgrade",
+            "description": "Uma release reúne uma instalação de um chart e seu histórico de mudanças, facilitando acompanhar atualizações.",
+            "resourceTitle": "Kubernetes · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/kubernetes@hIBeTUiAI3zwUY6NgAO-A"
+          },
+          {
+            "label": "Rollback e revisão",
+            "description": "O rollback de uma release recupera uma revisão anterior, mas seus efeitos precisam ser verificados junto ao estado dos dados e serviços.",
+            "resourceTitle": "Kubernetes · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/kubernetes@hIBeTUiAI3zwUY6NgAO-A"
+          }
+        ]
+      },
+      {
+        "size": "half",
+        "week": 21,
+        "stageGroup": "Confiabilidade e prática",
+        "weeklyGoal": "Medir o comportamento da aplicação antes de configurar alertas.",
+        "practice": "Coletar uma métrica do laboratório e criar um alerta para uma falha simulada.",
+        "richText": {
+          "root": {
+            "type": "root",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "direction": "ltr",
+            "children": [
+              {
+                "type": "heading",
+                "tag": "h3",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "direction": "ltr",
+                "children": [
+                  {
+                    "type": "text",
+                    "version": 1,
+                    "text": "Métricas e alertas",
+                    "format": 0,
+                    "detail": 0,
+                    "mode": "normal",
+                    "style": ""
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "topics": [
+          {
+            "label": "Instrumentação e coleta",
+            "description": "A instrumentação expõe sinais sobre a aplicação. O Prometheus coleta métricas para acompanhar seu comportamento ao longo do tempo.",
+            "resourceTitle": "Prometheus · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/prometheus@eOyu4wmKOrcMlhD8pUGGh"
+          },
+          {
+            "label": "PromQL e consultas",
+            "description": "PromQL permite consultar e combinar séries temporais para responder a perguntas sobre tráfego, falhas, latência e uso de recursos.",
+            "resourceTitle": "Prometheus · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/prometheus@eOyu4wmKOrcMlhD8pUGGh"
+          },
+          {
+            "label": "Alertas acionáveis",
+            "description": "Um alerta deve representar uma condição que exige ação e oferecer contexto para investigar e responder ao problema.",
+            "resourceTitle": "Prometheus · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/prometheus@eOyu4wmKOrcMlhD8pUGGh"
+          }
+        ]
+      },
+      {
+        "size": "half",
+        "week": 22,
+        "stageGroup": "Confiabilidade e prática",
+        "weeklyGoal": "Conectar sinais de operação a perguntas sobre o serviço.",
+        "practice": "Montar um painel de saúde e localizar nos logs uma requisição que falhou.",
+        "richText": {
+          "root": {
+            "type": "root",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "direction": "ltr",
+            "children": [
+              {
+                "type": "heading",
+                "tag": "h3",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "direction": "ltr",
+                "children": [
+                  {
+                    "type": "text",
+                    "version": 1,
+                    "text": "Logs e painéis",
+                    "format": 0,
+                    "detail": 0,
+                    "mode": "normal",
+                    "style": ""
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "topics": [
+          {
+            "label": "Painéis e contexto",
+            "description": "Painéis apresentam sinais de operação de forma organizada para ajudar a entender o estado de um serviço.",
+            "resourceTitle": "Grafana · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/grafana@niA_96yR7uQ0sc6S_OStf"
+          },
+          {
+            "label": "Logs e correlação",
+            "description": "Logs registram eventos da aplicação. Identificadores de correlação ajudam a relacionar mensagens de uma mesma operação.",
+            "resourceTitle": "Logs Management · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/logs-management@gaoZjOYmU0J5aM6vtLNvN"
+          },
+          {
+            "label": "Rastreamento de requisições",
+            "description": "Traces mostram o caminho de uma requisição entre componentes, enquanto spans representam partes desse trabalho.",
+            "resourceTitle": "OpenTelemetry · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/opentelemetry@K81bmtgnB1gfhYdi3TB5a"
+          }
+        ]
+      },
+      {
+        "size": "half",
+        "week": 23,
+        "stageGroup": "Confiabilidade e prática",
+        "weeklyGoal": "Definir confiabilidade e responder a falhas com método.",
+        "practice": "Escrever um runbook, simular uma indisponibilidade e registrar um post-mortem curto.",
+        "richText": {
+          "root": {
+            "type": "root",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "direction": "ltr",
+            "children": [
+              {
+                "type": "heading",
+                "tag": "h3",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "direction": "ltr",
+                "children": [
+                  {
+                    "type": "text",
+                    "version": 1,
+                    "text": "SRE e resposta a incidentes",
+                    "format": 0,
+                    "detail": 0,
+                    "mode": "normal",
+                    "style": ""
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "topics": [
+          {
+            "label": "SLIs, SLOs e orçamento de erro",
+            "description": "Um SLI mede um aspecto do serviço; um SLO define o objetivo para esse indicador durante um período de avaliação.",
+            "resourceTitle": "Availability · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/availability@JCe3fcOf-sokTJURyX1oI"
+          },
+          {
+            "label": "Runbooks e resposta",
+            "description": "Runbooks documentam procedimentos de diagnóstico e mitigação, ajudando a responder a incidentes de forma consistente.",
+            "resourceTitle": "Management and Monitoring · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/management-and-monitoring@8kby89epyullS9W7uKDrs"
+          },
+          {
+            "label": "Post-mortem e melhorias",
+            "description": "Um post-mortem registra o que aconteceu, os fatores que contribuíram e as melhorias que podem reduzir a repetição da falha.",
+            "resourceTitle": "Cloud Design Patterns · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/cloud-design-patterns@Qc0MGR5bMG9eeM5Zb9PMk"
+          }
+        ]
+      },
+      {
+        "size": "half",
+        "week": 24,
+        "stageGroup": "Confiabilidade e prática",
+        "weeklyGoal": "Conectar código, infraestrutura, entrega e observabilidade em um laboratório documentado.",
+        "practice": "Entregar um repositório com diagrama, instruções reproduzíveis, pipeline e relato de uma falha simulada.",
+        "richText": {
+          "root": {
+            "type": "root",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "direction": "ltr",
+            "children": [
+              {
+                "type": "heading",
+                "tag": "h3",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "direction": "ltr",
+                "children": [
+                  {
+                    "type": "text",
+                    "version": 1,
+                    "text": "Projeto integrador e revisão",
+                    "format": 0,
+                    "detail": 0,
+                    "mode": "normal",
+                    "style": ""
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "topics": [
+          {
+            "label": "Arquitetura e documentação",
+            "description": "Diagramas e documentação tornam visíveis os componentes, dependências e decisões de uma solução.",
+            "resourceTitle": "Design and Implementation · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/design-and-implementation@1_NRXjckZ0F8EtEmgixqz"
+          },
+          {
+            "label": "Entrega e operação",
+            "description": "Uma entrega completa conecta build, implantação, observabilidade e recuperação, permitindo operar a aplicação além de colocá-la no ar.",
+            "resourceTitle": "CI / CD Tools · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/ci-cd-tools@aQJaouIaxIJChM-40M3HQ"
+          },
+          {
+            "label": "Revisão e próximos passos",
+            "description": "Revisar os fundamentos e as lacunas ajuda a escolher os próximos temas a aprofundar no mapa completo de DevOps.",
+            "resourceTitle": "Cloud Design Patterns · DevOps Roadmap",
+            "resourceURL": "https://roadmap.sh/devops/cloud-design-patterns@Qc0MGR5bMG9eeM5Zb9PMk"
+          }
+        ]
+      },
+      {
+        "size": "full",
+        "enableLink": true,
+        "link": {
+          "type": "custom",
+          "url": "https://roadmap.sh/devops",
+          "label": "Explorar o DevOps Roadmap no roadmap.sh ↗",
+          "newTab": true
+        }
+      }
+    ]
+  }
+]

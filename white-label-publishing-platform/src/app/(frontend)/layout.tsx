@@ -20,7 +20,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const { isEnabled } = await draftMode()
 
   return (
-    <html className={cn(GeistSans.variable, GeistMono.variable)} lang="en" suppressHydrationWarning>
+    <html
+      className={cn(GeistSans.variable, GeistMono.variable)}
+      lang="pt-BR"
+      suppressHydrationWarning
+    >
       <head>
         <InitTheme />
       </head>
@@ -46,20 +50,19 @@ export const metadata: Metadata = {
     icon: [
       {
         rel: 'icon',
-        url: '/favicon.ico',
+        url: '/favicon.ico?v=jh',
       },
       {
         rel: 'icon',
         type: 'image/svg+xml',
-        url: '/favicon.svg',
+        url: '/favicon.svg?v=jh',
       },
     ],
-    shortcut: '/favicon.ico',
+    shortcut: '/favicon.ico?v=jh',
   },
   metadataBase: new URL(getServerSideURL()),
   openGraph: mergeOpenGraph(),
   twitter: {
     card: 'summary_large_image',
-    creator: '@payloadcms',
   },
 }

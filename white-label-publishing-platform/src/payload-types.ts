@@ -159,7 +159,21 @@ export interface Page {
   id: number;
   title: string;
   hero: {
-    type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact';
+    type: 'portfolio' | 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact';
+    eyebrow?: string | null;
+    heading?: string | null;
+    /**
+     * Um parágrafo curto sobre você. O site cuida da formatação.
+     */
+    introduction?: string | null;
+    youtubeDescription?: string | null;
+    /**
+     * Cole o link do vídeo. Título e imagem são consultados no YouTube; a reprodução ocorre nesta página.
+     */
+    youtubeVideoURL?: string | null;
+    youtubeURL?: string | null;
+    githubURL?: string | null;
+    linkedinURL?: string | null;
     richText?: {
       root: {
         type: string;
@@ -496,8 +510,37 @@ export interface CallToActionBlock {
  * via the `definition` "ContentBlock".
  */
 export interface ContentBlock {
+  /**
+   * Usa o mesmo conteúdo e links; altera apenas a apresentação pública.
+   */
+  appearance?: ('default' | 'cards' | 'about' | 'timeline' | 'roadmap') | null;
+  sectionTitle?: string | null;
   columns?:
     | {
+        week?: number | null;
+        weeklyGoal?: string | null;
+        practice?: string | null;
+        stageGroup?: string | null;
+        period?: string | null;
+        photos?:
+          | {
+              image: number | Media;
+              id?: string | null;
+            }[]
+          | null;
+        topics?:
+          | {
+              label: string;
+              description?: string | null;
+              resourceTitle?: string | null;
+              resourceURL?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        /**
+         * Na apresentação em cartões, busca o título e a capa automaticamente.
+         */
+        videoURL?: string | null;
         size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
         richText?: {
           root: {
@@ -1058,6 +1101,14 @@ export interface PagesSelect<T extends boolean = true> {
     | T
     | {
         type?: T;
+        eyebrow?: T;
+        heading?: T;
+        introduction?: T;
+        youtubeDescription?: T;
+        youtubeVideoURL?: T;
+        youtubeURL?: T;
+        githubURL?: T;
+        linkedinURL?: T;
         richText?: T;
         links?:
           | T
@@ -1128,9 +1179,32 @@ export interface CallToActionBlockSelect<T extends boolean = true> {
  * via the `definition` "ContentBlock_select".
  */
 export interface ContentBlockSelect<T extends boolean = true> {
+  appearance?: T;
+  sectionTitle?: T;
   columns?:
     | T
     | {
+        week?: T;
+        weeklyGoal?: T;
+        practice?: T;
+        stageGroup?: T;
+        period?: T;
+        photos?:
+          | T
+          | {
+              image?: T;
+              id?: T;
+            };
+        topics?:
+          | T
+          | {
+              label?: T;
+              description?: T;
+              resourceTitle?: T;
+              resourceURL?: T;
+              id?: T;
+            };
+        videoURL?: T;
         size?: T;
         richText?: T;
         enableLink?: T;

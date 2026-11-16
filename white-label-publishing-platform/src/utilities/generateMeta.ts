@@ -24,11 +24,17 @@ export const generateMeta = async (args: {
 }): Promise<Metadata> => {
   const { doc } = args
 
-  const ogImage = getImageURL(doc?.meta?.image)
+  const isHome = doc?.slug === 'home'
+  const ogImage =
+    isHome && !doc?.meta?.image
+      ? getServerSideURL() + '/junior-hova-portrait.png'
+      : getImageURL(doc?.meta?.image)
 
-  const title = doc?.meta?.title
-    ? doc?.meta?.title + ' | Payload Website Template'
-    : 'Payload Website Template'
+  const title = isHome
+    ? doc?.meta?.title || 'Junior Hova — Cloud, DevOps e tecnologia'
+    : doc?.meta?.title
+      ? doc?.meta?.title + ' | Payload Website Template'
+      : 'Payload Website Template'
 
   return {
     description: doc?.meta?.description,
