@@ -1,5 +1,8 @@
 # Payload Website Template
 
+Private S3 uploads through the native Payload admin, same-domain file delivery,
+and Coolify configuration: [S3 storage guide](docs/s3-storage.md).
+
 ## Project Commands
 
 This project uses pnpm only.
