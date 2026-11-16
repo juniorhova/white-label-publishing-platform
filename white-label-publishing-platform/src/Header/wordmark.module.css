@@ -1,0 +1,19 @@
+.wordmark {
+  display: inline-block;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -1.2px;
+  white-space: nowrap;
+  color: #202633;
+}
+.accent {
+  color: #2946a3;
+}
+:global(html[data-theme='dark']) .wordmark {
+  color: #edf1fc;
+}
+:global(html[data-theme='dark']) .accent {
+  color: #a4b9ff;
+}

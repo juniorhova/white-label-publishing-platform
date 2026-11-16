@@ -222,3 +222,12 @@ html[data-theme='dark'],
 html[data-theme='light'] {
   opacity: initial;
 }
+
+/* Public site typography; the native Payload admin has a separate layout. */
+body {
+  font-family: var(--font-geist-mono), monospace;
+}
+html[data-theme='light'] body {
+  background: #fafbff;
+  color: #202633;
+}

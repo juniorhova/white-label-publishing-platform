@@ -7,6 +7,8 @@ import {
   lexicalEditor,
 } from '@payloadcms/richtext-lexical'
 
+import { getYouTubeVideoID, validateSocialURL } from '@/utilities/youtube'
+
 import { linkGroup } from '@/fields/linkGroup'
 
 export const hero: Field = {
@@ -19,6 +21,7 @@ export const hero: Field = {
       defaultValue: 'lowImpact',
       label: 'Type',
       options: [
+        { label: 'Apresentação pessoal', value: 'portfolio' },
         {
           label: 'None',
           value: 'none',
@@ -39,6 +42,72 @@ export const hero: Field = {
       required: true,
     },
     {
+      name: 'eyebrow',
+      type: 'text',
+      label: 'Especialidade',
+      admin: { condition: (_, siblingData) => siblingData?.type === 'portfolio' },
+    },
+    {
+      name: 'heading',
+      type: 'text',
+      label: 'Apresentação',
+      admin: { condition: (_, siblingData) => siblingData?.type === 'portfolio' },
+      validate: (value: string | null | undefined, { siblingData }: { siblingData: unknown }) =>
+        (siblingData as { type?: string })?.type !== 'portfolio' ||
+        Boolean(value?.trim()) ||
+        'Informe um título para a apresentação.',
+    },
+    {
+      name: 'introduction',
+      type: 'textarea',
+      label: 'Descrição',
+      admin: {
+        condition: (_, siblingData) => siblingData?.type === 'portfolio',
+        description: 'Um parágrafo curto sobre você. O site cuida da formatação.',
+      },
+    },
+    {
+      name: 'youtubeDescription',
+      type: 'textarea',
+      label: 'Descrição do vídeo em destaque',
+      admin: { condition: (_, siblingData) => siblingData?.type === 'portfolio' },
+    },
+    {
+      name: 'youtubeVideoURL',
+      type: 'text',
+      label: 'Vídeo em destaque — URL do YouTube',
+      admin: {
+        condition: (_, siblingData) => siblingData?.type === 'portfolio',
+        description:
+          'Cole o link do vídeo. Título e imagem são consultados no YouTube; a reprodução ocorre nesta página.',
+      },
+      validate: (value: string | null | undefined) =>
+        !value ||
+        Boolean(getYouTubeVideoID(value)) ||
+        'Informe uma URL HTTPS válida de um vídeo do YouTube.',
+    },
+    {
+      name: 'youtubeURL',
+      type: 'text',
+      label: 'YouTube — perfil',
+      admin: { condition: (_, siblingData) => siblingData?.type === 'portfolio' },
+      validate: (value: string | null | undefined) => validateSocialURL(value, 'youtube'),
+    },
+    {
+      name: 'githubURL',
+      type: 'text',
+      label: 'GitHub — perfil',
+      admin: { condition: (_, siblingData) => siblingData?.type === 'portfolio' },
+      validate: (value: string | null | undefined) => validateSocialURL(value, 'github'),
+    },
+    {
+      name: 'linkedinURL',
+      type: 'text',
+      label: 'LinkedIn — perfil',
+      admin: { condition: (_, siblingData) => siblingData?.type === 'portfolio' },
+      validate: (value: string | null | undefined) => validateSocialURL(value, 'linkedin'),
+    },
+    {
       name: 'richText',
       type: 'richText',
       editor: lexicalEditor({
@@ -52,6 +121,7 @@ export const hero: Field = {
         },
       }),
       label: false,
+      admin: { condition: (_, siblingData) => siblingData?.type !== 'portfolio' },
     },
     linkGroup({
       overrides: {
@@ -62,7 +132,7 @@ export const hero: Field = {
       name: 'media',
       type: 'upload',
       admin: {
-        condition: (_, { type } = {}) => ['highImpact', 'mediumImpact'].includes(type),
+        condition: (_, { type } = {}) => ['highImpact', 'mediumImpact', 'portfolio'].includes(type),
       },
       relationTo: 'media',
       required: true,

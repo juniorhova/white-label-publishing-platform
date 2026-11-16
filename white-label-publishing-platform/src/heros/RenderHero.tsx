@@ -6,7 +6,10 @@ import { HighImpactHero } from '@/heros/HighImpact'
 import { LowImpactHero } from '@/heros/LowImpact'
 import { MediumImpactHero } from '@/heros/MediumImpact'
 
+import { PortfolioHero } from '@/heros/Portfolio'
+
 const heroes = {
+  portfolio: PortfolioHero,
   highImpact: HighImpactHero,
   lowImpact: LowImpactHero,
   mediumImpact: MediumImpactHero,

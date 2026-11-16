@@ -6,8 +6,8 @@ import React, { useEffect, useState } from 'react'
 
 import type { Header } from '@/payload-types'
 
-import { Logo } from '@/components/Logo/Logo'
 import { HeaderNav } from './Nav'
+import styles from './wordmark.module.css'
 
 interface HeaderClientProps {
   data: Header
@@ -30,10 +30,15 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
   }, [headerTheme])
 
   return (
-    <header className="container relative z-20   " {...(theme ? { 'data-theme': theme } : {})}>
-      <div className="py-8 flex justify-between">
-        <Link href="/">
-          <Logo loading="eager" priority="high" className="invert dark:invert-0" />
+    <header
+      className="site-header container relative z-20"
+      {...(theme ? { 'data-theme': theme } : {})}
+    >
+      <div className="py-6 flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+        <Link href="/" aria-label="juniorhova. — Início" className="shrink-0">
+          <span className={styles.wordmark} data-wordmark>
+            junior<span className={styles.accent}>hova.</span>
+          </span>
         </Link>
         <HeaderNav data={data} />
       </div>
