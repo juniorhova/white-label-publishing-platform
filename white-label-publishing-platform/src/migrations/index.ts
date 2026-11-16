@@ -6,6 +6,8 @@ import * as migration_20261115_231802_align_home_approved_layout from './2026111
 import * as migration_20261115_235414_home_interactive_sections from './20261115_235414_home_interactive_sections'
 import * as migration_20261116_001516_roadmap_weekly_materials from './20261116_001516_roadmap_weekly_materials'
 
+import * as publish_approved_home from './20261116_020000_publish_approved_home'
+
 export const migrations = [
   {
     up: migration_20260809_143404_initial_schema.up,
@@ -41,5 +43,10 @@ export const migrations = [
     up: migration_20261116_001516_roadmap_weekly_materials.up,
     down: migration_20261116_001516_roadmap_weekly_materials.down,
     name: '20261116_001516_roadmap_weekly_materials',
+  },
+  {
+    up: publish_approved_home.up,
+    down: publish_approved_home.down,
+    name: '20261116_020000_publish_approved_home',
   },
 ]

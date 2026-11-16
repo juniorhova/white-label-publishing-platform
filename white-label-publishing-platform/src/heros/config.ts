@@ -131,11 +131,16 @@ export const hero: Field = {
     {
       name: 'media',
       type: 'upload',
+      relationTo: 'media',
       admin: {
         condition: (_, { type } = {}) => ['highImpact', 'mediumImpact', 'portfolio'].includes(type),
+        description:
+          'Na apresentação pessoal, deixe vazio para usar a foto inicial incluída no site.',
       },
-      relationTo: 'media',
-      required: true,
+      validate: (value: unknown, { siblingData }: { siblingData: unknown }) =>
+        !['highImpact', 'mediumImpact'].includes((siblingData as { type?: string })?.type || '') ||
+        Boolean(value) ||
+        'Selecione uma imagem para esta apresentação.',
     },
   ],
   label: false,
