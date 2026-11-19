@@ -1,5 +1,7 @@
 # Payload Website Template
 
+Domain cutover preparation (no production changes): [Portfolio domain migration](docs/portfolio-domain-migration.md).
+
 Private S3 uploads through the native Payload admin, same-domain file delivery,
 and Coolify configuration: [S3 storage guide](docs/s3-storage.md).
 
