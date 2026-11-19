@@ -1,0 +1,59 @@
+// Brand only: native navigation, fields and authentication remain owned by Payload.
+.jh-admin-wordmark {
+  font-family: var(--font-mono), monospace;
+  font-size: clamp(30px, 7vw, 42px);
+  font-weight: 700;
+  letter-spacing: -2px;
+  color: var(--theme-text);
+  white-space: nowrap;
+
+  span {
+    color: #2946a3;
+  }
+}
+
+.jh-admin-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 7px;
+  background: #2946a3;
+  color: #fff;
+  font-family: monospace;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.jh-admin-intro {
+  margin-bottom: 24px;
+
+  h1 {
+    font-size: 24px;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+  }
+  p {
+    color: var(--theme-elevation-600);
+    line-height: 1.6;
+  }
+}
+
+.jh-admin-welcome {
+  margin-bottom: 32px;
+  padding: 24px;
+  border: 1px solid var(--theme-elevation-150);
+  border-radius: 12px;
+
+  h2 {
+    margin-top: 0;
+  }
+  a {
+    text-underline-offset: 4px;
+  }
+}
+
+html[data-theme='dark'] .jh-admin-wordmark span {
+  color: #a4b9ff;
+}
