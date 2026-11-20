@@ -21,6 +21,10 @@ const dirname = path.dirname(filename)
 export default buildConfig({
   admin: {
     components: {
+      graphics: {
+        Logo: '@/components/AdminBrand#Logo',
+        Icon: '@/components/AdminBrand#Icon',
+      },
       afterLogin: ['@/components/AfterLogin'],
       // The `BeforeLogin` component renders a message that you see while logging into your admin panel.
       // Feel free to delete this at any time. Simply remove the line below.
@@ -33,6 +37,13 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
     meta: {
+      titleSuffix: ' — Junior Hova',
+      description: 'Administração do portfólio Junior Hova.',
+      defaultOGImageType: 'off',
+      openGraph: {
+        siteName: 'Junior Hova',
+        description: 'Administração do portfólio Junior Hova.',
+      },
       icons: [
         { rel: 'apple-touch-icon', url: '/apple-touch-icon-jh.png' },
         {

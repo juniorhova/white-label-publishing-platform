@@ -41,7 +41,7 @@ const AfterLogin: React.FC<AfterLoginProps> = ({ searchParams }) => {
           }}
           type="submit"
         >
-          Log in with Microsoft Entra ID
+          Entrar com Microsoft
         </button>
       </form>
       {ssoError ? (
