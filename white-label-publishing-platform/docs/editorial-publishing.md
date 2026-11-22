@@ -7,12 +7,14 @@ Continue em **Posts** no admin nativo. O conteúdo tem blocos **Material PDF**
 explicações). Vídeo do YouTube é opcional. Blocos interativos usam estado da visita,
 sem progresso compartilhado; não executam código enviado por visitantes.
 
-Pages → Home continua editável. A seção Artigos recentes é automática, mostra até
-três publicados por data e desaparece enquanto não houver artigos. Não reimporta
-nem substitui a home do banco. Vídeos de cards/hero encontram um artigo publicado
-com exatamente a mesma URL de vídeo, e passam a oferecer seu link. Use a mesma
-forma da URL nos dois campos. Artigos relacionados podem ser escolhidos no admin;
-sem seleção, são sugeridos por categoria (ou recentes quando não há categoria).
+Pages → Home continua editável. A seção Artigos recentes mostra automaticamente
+até três posts publicados por data. Para publicar um vídeo no site, crie ou edite
+seu artigo em **Posts** e preencha o campo **Vídeo do YouTube**. O card usa a
+thumbnail do vídeo e abre o artigo, onde o visitante pode reproduzi-lo. Cards de
+artigos sem vídeo exibem texto. Valores antigos de vídeo da home são mantidos no
+Payload para compatibilidade, e a home reúne as publicações na seção de artigos.
+Artigos relacionados podem ser escolhidos no admin ou sugeridos por categoria
+(ou por data quando não há categoria).
 
 `/posts` filtra por categoria e busca título/descrição, com paginação. O artigo tem
 sumário navegável com seção ativa e busca de trechos no conteúdo já carregado.

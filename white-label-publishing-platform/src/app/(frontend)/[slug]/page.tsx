@@ -46,6 +46,16 @@ export default async function Page({ params: paramsPromise }: Args) {
   }
 
   const { hero, layout } = page
+  const isHome = decodedSlug === 'home'
+  const homeHero = isHome && hero.type === 'portfolio' ? { ...hero, youtubeVideoURL: null } : hero
+  const blocks = isHome
+    ? layout.flatMap((block) => {
+        if (block.blockType !== 'content' || block.appearance !== 'cards') return [block]
+
+        const columns = block.columns?.filter((column) => !column.videoURL)
+        return columns?.length ? [{ ...block, columns }] : []
+      })
+    : layout
 
   return (
     <article className={hero.type === 'portfolio' ? 'portfolio-page pb-12' : 'pt-16 pb-24'}>
@@ -55,14 +65,14 @@ export default async function Page({ params: paramsPromise }: Args) {
 
       {draft && <LivePreviewListener />}
 
-      <RenderHero {...hero} />
-      {decodedSlug === 'home' && <RecentPosts />}
+      <RenderHero {...homeHero} />
+      {isHome && <RecentPosts />}
       {hero.type === 'portfolio' ? (
-        <div id="videos">
-          <RenderBlocks blocks={layout} />
+        <div className="portfolio-sections" id={isHome ? undefined : 'videos'}>
+          <RenderBlocks blocks={blocks} />
         </div>
       ) : (
-        <RenderBlocks blocks={layout} />
+        <RenderBlocks blocks={blocks} />
       )}
     </article>
   )

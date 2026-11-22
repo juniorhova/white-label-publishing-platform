@@ -334,7 +334,7 @@ body:has(.portfolio-page) .site-header nav {
   font-family: var(--font-geist-mono), monospace;
   padding-bottom: 0;
 }
-.portfolio-page #videos > .my-16 {
+.portfolio-page .portfolio-sections > .my-16 {
   margin: 28px 0;
 }
 .portfolio-page .editorial-section {
