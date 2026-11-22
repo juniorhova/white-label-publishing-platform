@@ -8,10 +8,12 @@ export function YouTubePlayer({
   title,
   thumbnail,
   showFallback = true,
+  showTitle = true,
 }: {
   id: string
   title: string
   thumbnail: string
+  showTitle?: boolean
   showFallback?: boolean
 }) {
   const [playing, setPlaying] = useState(false)
@@ -39,7 +41,7 @@ export function YouTubePlayer({
           <span className="home-video-play">
             <Play aria-hidden="true" size={26} fill="currentColor" />
           </span>
-          <span className="home-video-title">{title}</span>
+          {showTitle && <span className="home-video-title">{title}</span>}
         </button>
       )}
       {showFallback && (

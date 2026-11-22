@@ -49,6 +49,7 @@ export function Roadmap({ columns, sectionTitle, id }: Props) {
     }
   }, [selectedKey])
   const done = validIDs.filter((key) => completed.includes(key)).length
+  const nextTopic = entries.find((entry) => !completed.includes(entry.key))
   const allOpen = stages.length > 0 && stages.every((column) => expanded.includes(stageID(column)))
 
   useEffect(() => {
@@ -166,6 +167,17 @@ export function Roadmap({ columns, sectionTitle, id }: Props) {
             </p>
           </div>
           <div className={styles.tools}>
+            {nextTopic && (
+              <button
+                type="button"
+                onClick={(event) => {
+                  lastTopicButton.current = event.currentTarget
+                  setSelectedKey(nextTopic.key)
+                }}
+              >
+                {done ? 'Continuar estudos' : 'Começar pelo primeiro tópico'}
+              </button>
+            )}
             <button type="button" onClick={() => setExpanded(allOpen ? [] : stages.map(stageID))}>
               {allOpen ? 'Recolher tudo' : 'Expandir tudo'}
             </button>

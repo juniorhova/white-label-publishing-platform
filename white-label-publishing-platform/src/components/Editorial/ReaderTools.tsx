@@ -64,6 +64,8 @@ export function ReaderTools() {
     })
     return () => cancelAnimationFrame(frame)
   }, [query])
+  if (headings.length < 2) return null
+
   return (
     <aside className="reader-nav" aria-label="Ferramentas de leitura">
       <label htmlFor="search-this-article">Buscar neste artigo</label>
