@@ -14,13 +14,13 @@ export async function RecentPosts() {
     limit: 3,
     depth: 1,
   })
-  if (!result.docs.length) return null
   return (
     <section className="editorial-shell" id="artigos" aria-labelledby="recent-posts-heading">
+      <span id="videos" aria-hidden="true" />
       <h2 className="text-2xl font-bold mb-6" id="recent-posts-heading">
         Artigos recentes
       </h2>
-      <PostCards posts={result.docs} />
+      {result.docs.length > 0 && <PostCards posts={result.docs} />}
       <p className="mt-6">
         <Link href="/posts">Ver todos os artigos →</Link>
       </p>
