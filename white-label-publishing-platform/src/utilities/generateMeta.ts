@@ -21,6 +21,7 @@ const getImageURL = (image?: Media | Config['db']['defaultIDType'] | null) => {
 
 export const generateMeta = async (args: {
   doc: Partial<Page> | Partial<Post> | null
+  collection?: 'pages' | 'posts'
 }): Promise<Metadata> => {
   const { doc } = args
 
@@ -32,11 +33,13 @@ export const generateMeta = async (args: {
 
   const title = isHome
     ? doc?.meta?.title || 'Junior Hova — Cloud, DevOps e tecnologia'
-    : doc?.meta?.title
-      ? doc?.meta?.title + ' | Payload Website Template'
-      : 'Payload Website Template'
+    : `${doc?.meta?.title || doc?.title || 'Artigo'} | Junior Hova`
+  const pathname = isHome
+    ? '/'
+    : `${args.collection === 'posts' ? '/posts' : ''}/${doc?.slug || ''}`
 
   return {
+    alternates: { canonical: pathname },
     description: doc?.meta?.description,
     openGraph: mergeOpenGraph({
       description: doc?.meta?.description || '',
@@ -48,7 +51,7 @@ export const generateMeta = async (args: {
           ]
         : undefined,
       title,
-      url: Array.isArray(doc?.slug) ? doc?.slug.join('/') : '/',
+      url: pathname,
     }),
     title,
   }

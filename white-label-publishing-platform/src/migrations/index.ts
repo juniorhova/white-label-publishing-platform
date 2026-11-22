@@ -5,8 +5,8 @@ import * as migration_20261115_230307_personal_home_youtube from './20261115_230
 import * as migration_20261115_231802_align_home_approved_layout from './20261115_231802_align_home_approved_layout'
 import * as migration_20261115_235414_home_interactive_sections from './20261115_235414_home_interactive_sections'
 import * as migration_20261116_001516_roadmap_weekly_materials from './20261116_001516_roadmap_weekly_materials'
-
-import * as publish_approved_home from './20261116_020000_publish_approved_home'
+import * as migration_20261116_020000_publish_approved_home from './20261116_020000_publish_approved_home'
+import * as migration_20261122_201125_editorial_publishing from './20261122_201125_editorial_publishing'
 
 export const migrations = [
   {
@@ -45,8 +45,13 @@ export const migrations = [
     name: '20261116_001516_roadmap_weekly_materials',
   },
   {
-    up: publish_approved_home.up,
-    down: publish_approved_home.down,
+    up: migration_20261116_020000_publish_approved_home.up,
+    down: migration_20261116_020000_publish_approved_home.down,
     name: '20261116_020000_publish_approved_home',
+  },
+  {
+    up: migration_20261122_201125_editorial_publishing.up,
+    down: migration_20261122_201125_editorial_publishing.down,
+    name: '20261122_201125_editorial_publishing',
   },
 ]

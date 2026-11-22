@@ -29,6 +29,7 @@ RUN --mount=type=secret,id=DATABASE_URL \
   --mount=type=secret,id=NEXT_PUBLIC_SERVER_URL \
   --mount=type=secret,id=CRON_SECRET \
   --mount=type=secret,id=PREVIEW_SECRET \
+  --mount=type=secret,id=NEXT_PUBLIC_TURNSTILE_SITE_KEY \
   --mount=type=secret,id=S3_ENABLED \
   --mount=type=secret,id=S3_BUCKET \
   --mount=type=secret,id=S3_REGION \
@@ -39,7 +40,7 @@ RUN --mount=type=secret,id=DATABASE_URL \
   export NEXT_PUBLIC_SERVER_URL="$(cat /run/secrets/NEXT_PUBLIC_SERVER_URL)" && \
   export CRON_SECRET="$(cat /run/secrets/CRON_SECRET)" && \
   export PREVIEW_SECRET="$(cat /run/secrets/PREVIEW_SECRET)" && \
-  for name in S3_ENABLED S3_BUCKET S3_REGION S3_ACCESS_KEY_ID S3_SECRET_ACCESS_KEY; do \
+  for name in NEXT_PUBLIC_TURNSTILE_SITE_KEY S3_ENABLED S3_BUCKET S3_REGION S3_ACCESS_KEY_ID S3_SECRET_ACCESS_KEY; do \
     if [ -f "/run/secrets/$name" ]; then export "$name=$(cat "/run/secrets/$name")"; fi; \
   done && \
   corepack enable pnpm && \
@@ -67,6 +68,8 @@ COPY --from=builder --chown=nextjs:nodejs /app/tsconfig.json ./tsconfig.json
 COPY --from=builder --chown=nextjs:nodejs /app/next.config.ts ./next.config.ts
 COPY --from=builder --chown=nextjs:nodejs /app/redirects.ts ./redirects.ts
 
+COPY --from=builder --chown=nextjs:nodejs /app/scripts ./scripts
+
 USER nextjs
 
 EXPOSE 3000
@@ -76,4 +79,6 @@ ENV PORT=3000
 HEALTHCHECK --interval=30s --timeout=5s --start-period=30s --retries=3 \
   CMD node -e "fetch('http://127.0.0.1:' + (process.env.PORT || 3000) + '/api/health').then((response) => { if (!response.ok) process.exit(1) }).catch(() => process.exit(1))"
 
-CMD ["sh", "-c", "pnpm migrate && pnpm start"]
+# Compatibility default until the separate Compose release job is enabled.
+# Compose overrides commands so web restarts only verify the ledger, never migrate.
+CMD ["sh", "-c", "node scripts/deploy/migrations.mjs migrate && exec pnpm start"]

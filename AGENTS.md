@@ -331,3 +331,22 @@ The MVP is complete when:
 ## Production Environment ##
 
 The production environment will run through Coolify self-hosted platform, having both application and postgres deployed by Coolify.
+
+### Backward-compatible migrations (owner requirement)
+
+Always keep production migrations compatible with the currently deployed application
+and with application rollback. Review both the SQL schema and stored content/block
+formats: additive tables alone do not prove compatibility with an older renderer.
+
+- Use expand → migrate/backfill → switch application → contract in separate releases.
+- Do not drop or rename existing columns/tables, remove enum values, or introduce
+  constraints that reject writes from the previous release during a rolling deploy.
+- Make backfills safe for existing data and evaluate locks/duration on populated
+  tables. Verify the previous release can still read and write after the migration.
+- Keep destructive cleanup out of the initial feature release; require separate
+  explicit authorization after the rollback window closes.
+- Roll back application code while retaining compatible schema/data. Do not run a
+  destructive down migration as the default production rollback.
+- Document migration order, compatibility evidence, backup and rollback in the PR.
+  Do not change the production migration runner or deployment configuration without
+  authorization.

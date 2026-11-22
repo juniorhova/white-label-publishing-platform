@@ -1,3 +1,4 @@
+import { RecentPosts } from '@/components/Editorial/RecentPosts'
 import type { Metadata } from 'next'
 
 import { PayloadRedirects } from '@/components/PayloadRedirects'
@@ -55,6 +56,7 @@ export default async function Page({ params: paramsPromise }: Args) {
       {draft && <LivePreviewListener />}
 
       <RenderHero {...hero} />
+      {decodedSlug === 'home' && <RecentPosts />}
       {hero.type === 'portfolio' ? (
         <div id="videos">
           <RenderBlocks blocks={layout} />

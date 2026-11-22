@@ -18,7 +18,7 @@ Header e Footer passam a usar cache limitado à requisição. Assim, os dados an
 
 ## Aplicar
 
-O Dockerfile existente inicia com `pnpm migrate && pnpm start`. Após revisar e integrar o PR de correção, o próximo deploy que usar esse comando aplicará a publicação antes de iniciar o site. O pacote de conteúdo é copiado explicitamente para a imagem de execução.
+O Dockerfile inicia com migrations sob lock e depois o Next.js. O modo separado de release está documentado em [Job de migration](release-migrations.md). Após revisar e integrar o PR de correção, o próximo deploy que usar esse comando aplicará a publicação antes de iniciar o site. O pacote de conteúdo é copiado explicitamente para a imagem de execução.
 
 Não é necessário criar outra home manualmente para esse caso. Se houver uma home personalizada ou em rascunho antes do deploy, a migração a preservará; nesse caso a decisão editorial precisa ser feita no admin. A migração não recria automaticamente páginas apagadas depois de sua aplicação: ela só executa uma vez, como as outras migrações.
 

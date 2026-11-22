@@ -23,7 +23,11 @@
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
     "test": "pnpm run test:int && pnpm run test:e2e",
     "test:e2e": "cross-env NODE_OPTIONS=\"--no-deprecation --import=tsx/esm\" playwright test --config=playwright.config.ts",
-    "test:int": "cross-env NODE_OPTIONS=--no-deprecation vitest run --config ./vitest.config.mts"
+    "test:int": "cross-env NODE_OPTIONS=--no-deprecation vitest run --config ./vitest.config.mts",
+    "import:post": "node scripts/import-post/index.mjs",
+    "migrate:release": "node scripts/deploy/migrations.mjs migrate",
+    "migrate:check": "node scripts/deploy/migrations.mjs check",
+    "start:checked": "node scripts/deploy/migrations.mjs check && pnpm start"
   },
   "dependencies": {
     "@payloadcms/admin-bar": "3.86.0",
@@ -53,6 +57,7 @@
     "next": "16.2.6",
     "next-sitemap": "^4.2.3",
     "payload": "3.86.0",
+    "pg": "8.20.0",
     "prism-react-renderer": "^2.3.1",
     "react": "19.2.6",
     "react-dom": "19.2.6",
