@@ -68,6 +68,8 @@ COPY --from=builder --chown=nextjs:nodejs /app/tsconfig.json ./tsconfig.json
 COPY --from=builder --chown=nextjs:nodejs /app/next.config.ts ./next.config.ts
 COPY --from=builder --chown=nextjs:nodejs /app/redirects.ts ./redirects.ts
 
+COPY --from=builder --chown=nextjs:nodejs /app/scripts ./scripts
+
 USER nextjs
 
 EXPOSE 3000
@@ -77,4 +79,6 @@ ENV PORT=3000
 HEALTHCHECK --interval=30s --timeout=5s --start-period=30s --retries=3 \
   CMD node -e "fetch('http://127.0.0.1:' + (process.env.PORT || 3000) + '/api/health').then((response) => { if (!response.ok) process.exit(1) }).catch(() => process.exit(1))"
 
-CMD ["sh", "-c", "pnpm migrate && pnpm start"]
+# Compatibility default until the separate Compose release job is enabled.
+# Compose overrides commands so web restarts only verify the ledger, never migrate.
+CMD ["sh", "-c", "node scripts/deploy/migrations.mjs migrate && exec pnpm start"]

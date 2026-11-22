@@ -1,0 +1,106 @@
+# Opt-in release topology. The current Dockerfile deployment remains compatible
+# until the Coolify build strategy is deliberately switched to Docker Compose.
+x-image: &image ${COOLIFY_RESOURCE_UUID:-juniorhova-portfolio}:release
+x-runtime: &runtime
+  NODE_ENV: production
+  DATABASE_URL: ${DATABASE_URL:?}
+  PAYLOAD_SECRET: ${PAYLOAD_SECRET:?}
+  NEXT_PUBLIC_SERVER_URL: ${NEXT_PUBLIC_SERVER_URL:?}
+  CRON_SECRET: ${CRON_SECRET:-}
+  PREVIEW_SECRET: ${PREVIEW_SECRET:-}
+  S3_ENABLED: ${S3_ENABLED:-false}
+  S3_BUCKET: ${S3_BUCKET:-}
+  S3_REGION: ${S3_REGION:-}
+  S3_ACCESS_KEY_ID: ${S3_ACCESS_KEY_ID:-}
+  S3_SECRET_ACCESS_KEY: ${S3_SECRET_ACCESS_KEY:-}
+  ENTRA_TENANT_ID: ${ENTRA_TENANT_ID:-}
+  ENTRA_CLIENT_ID: ${ENTRA_CLIENT_ID:-}
+  ENTRA_CLIENT_SECRET: ${ENTRA_CLIENT_SECRET:-}
+  ENTRA_REDIRECT_URI: ${ENTRA_REDIRECT_URI:-}
+  ENTRA_ALLOWED_EMAILS: ${ENTRA_ALLOWED_EMAILS:-}
+  ENTRA_VALIDATE_MFA_CLAIM: ${ENTRA_VALIDATE_MFA_CLAIM:-false}
+  PAYLOAD_PASSWORD_LOGIN_ALLOWED_EMAILS: ${PAYLOAD_PASSWORD_LOGIN_ALLOWED_EMAILS:-}
+  NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${NEXT_PUBLIC_TURNSTILE_SITE_KEY:-}
+  TURNSTILE_SECRET_KEY: ${TURNSTILE_SECRET_KEY:-}
+  MIGRATION_LOCK_TIMEOUT_MS: ${MIGRATION_LOCK_TIMEOUT_MS:-60000}
+services:
+  migrate:
+    image: *image
+    build:
+      context: .
+      dockerfile: Dockerfile
+      secrets:
+        - DATABASE_URL
+        - PAYLOAD_SECRET
+        - NEXT_PUBLIC_SERVER_URL
+        - CRON_SECRET
+        - PREVIEW_SECRET
+        - NEXT_PUBLIC_TURNSTILE_SITE_KEY
+        - S3_ENABLED
+        - S3_BUCKET
+        - S3_REGION
+        - S3_ACCESS_KEY_ID
+        - S3_SECRET_ACCESS_KEY
+    command: [node, scripts/deploy/migrations.mjs, migrate]
+    environment: *runtime
+    restart: 'no'
+    healthcheck:
+      disable: true
+    networks:
+      - default
+      - coolify
+    # Coolify must not expect a successful one-shot container to remain healthy.
+    exclude_from_hc: true
+  web:
+    image: *image
+    pull_policy: never
+    command: [sh, -c, 'node scripts/deploy/migrations.mjs check && exec pnpm start']
+    environment: *runtime
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    restart: unless-stopped
+    expose:
+      - '3000'
+    healthcheck:
+      test:
+        [
+          CMD,
+          node,
+          -e,
+          "fetch('http://127.0.0.1:3000/api/health').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))",
+        ]
+      interval: 10s
+      timeout: 5s
+      start_period: 30s
+      retries: 6
+    networks:
+      - default
+      - coolify
+networks:
+  coolify:
+    external: true
+    name: ${COOLIFY_NETWORK:-coolify}
+secrets:
+  DATABASE_URL:
+    environment: DATABASE_URL
+  PAYLOAD_SECRET:
+    environment: PAYLOAD_SECRET
+  NEXT_PUBLIC_SERVER_URL:
+    environment: NEXT_PUBLIC_SERVER_URL
+  CRON_SECRET:
+    environment: CRON_SECRET
+  PREVIEW_SECRET:
+    environment: PREVIEW_SECRET
+  NEXT_PUBLIC_TURNSTILE_SITE_KEY:
+    environment: NEXT_PUBLIC_TURNSTILE_SITE_KEY
+  S3_ENABLED:
+    environment: S3_ENABLED
+  S3_BUCKET:
+    environment: S3_BUCKET
+  S3_REGION:
+    environment: S3_REGION
+  S3_ACCESS_KEY_ID:
+    environment: S3_ACCESS_KEY_ID
+  S3_SECRET_ACCESS_KEY:
+    environment: S3_SECRET_ACCESS_KEY

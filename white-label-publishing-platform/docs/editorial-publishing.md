@@ -121,8 +121,9 @@ de produção por variável de teste. Validar o widget real no domínio após de
 
 ## Deploy e rollback
 
-Revisar a migração nova e fazer backup PostgreSQL antes do merge/deploy. O comando
-existente `pnpm migrate && pnpm start` aplica campos e tabelas novas; não publica
+Revisar a migração nova e fazer backup PostgreSQL antes do merge/deploy. O CMD
+compatível aplica migrations sob lock e depois inicia o Next.js; o fluxo separado
+está em [Job de release](release-migrations.md). A migration aplica campos e tabelas novas; não publica
 artigos nem altera dados existentes. Merge na main pode disparar deploy automático.
 
 Validar: rascunho oculto, simulação sem escrita, importação de rascunho, publicação
