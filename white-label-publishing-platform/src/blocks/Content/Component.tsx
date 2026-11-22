@@ -1,3 +1,6 @@
+import { getPayload } from 'payload'
+import config from '@payload-config'
+import Link from 'next/link'
 import { cn } from '@/utilities/ui'
 import React from 'react'
 import RichText from '@/components/RichText'
@@ -15,11 +18,26 @@ type Column = NonNullable<ContentBlockProps['columns']>[number]
 async function ContentVideoCard({ url, richText }: { url: string; richText: Column['richText'] }) {
   const video = await getYouTubeMetadata(url)
   if (!video) return null
+  const payload = await getPayload({ config })
+  const related = await payload.find({
+    collection: 'posts',
+    overrideAccess: false,
+    draft: false,
+    where: { and: [{ videoURL: { equals: url } }, { _status: { equals: 'published' } }] },
+    limit: 1,
+    depth: 0,
+  })
+  const post = related.docs[0]
   return (
     <>
       <YouTubePlayer {...video} showFallback={false} />
       <div className="editorial-video-info">
-        <h3>{video.title}</h3>
+        <h3>{post ? <Link href={`/posts/${post.slug}`}>{post.title}</Link> : video.title}</h3>
+        {post && (
+          <Link className="editorial-content-link" href={`/posts/${post.slug}`}>
+            Ler artigo e acessar materiais →
+          </Link>
+        )}
         {richText && <RichText data={richText} enableGutter={false} />}
         <a
           className="editorial-content-link"

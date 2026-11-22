@@ -72,6 +72,8 @@ export interface Config {
     media: Media;
     categories: Category;
     users: User;
+    comments: Comment;
+    reactions: Reaction;
     redirects: Redirect;
     forms: Form;
     'form-submissions': FormSubmission;
@@ -94,6 +96,8 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
+    comments: CommentsSelect<false> | CommentsSelect<true>;
+    reactions: ReactionsSelect<false> | ReactionsSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
@@ -243,6 +247,7 @@ export interface Page {
  */
 export interface Post {
   id: number;
+  videoURL?: string | null;
   title: string;
   heroImage?: (number | null) | Media;
   content: {
@@ -823,6 +828,35 @@ export interface Form {
   createdAt: string;
 }
 /**
+ * Novos comentários aguardam aprovação. Marque como aprovado para exibir no artigo.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "comments".
+ */
+export interface Comment {
+  id: number;
+  post: number | Post;
+  name: string;
+  text: string;
+  status: 'pending' | 'approved' | 'rejected';
+  visitorHash: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "reactions".
+ */
+export interface Reaction {
+  id: number;
+  post: number | Post;
+  kind: 'like' | 'helpful' | 'insightful';
+  visitorHash: string;
+  key: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
@@ -1031,6 +1065,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'users';
         value: number | User;
+      } | null)
+    | ({
+        relationTo: 'comments';
+        value: number | Comment;
+      } | null)
+    | ({
+        relationTo: 'reactions';
+        value: number | Reaction;
       } | null)
     | ({
         relationTo: 'redirects';
@@ -1265,6 +1307,7 @@ export interface FormBlockSelect<T extends boolean = true> {
  * via the `definition` "posts_select".
  */
 export interface PostsSelect<T extends boolean = true> {
+  videoURL?: T;
   title?: T;
   heroImage?: T;
   content?: T;
@@ -1428,6 +1471,31 @@ export interface UsersSelect<T extends boolean = true> {
         createdAt?: T;
         expiresAt?: T;
       };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "comments_select".
+ */
+export interface CommentsSelect<T extends boolean = true> {
+  post?: T;
+  name?: T;
+  text?: T;
+  status?: T;
+  visitorHash?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "reactions_select".
+ */
+export interface ReactionsSelect<T extends boolean = true> {
+  post?: T;
+  kind?: T;
+  visitorHash?: T;
+  key?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1870,11 +1938,40 @@ export interface BannerBlock {
  * via the `definition` "CodeBlock".
  */
 export interface CodeBlock {
-  language?: ('typescript' | 'javascript' | 'css') | null;
+  language?: ('bash' | 'json' | 'yaml' | 'python' | 'text' | 'typescript' | 'javascript' | 'css') | null;
   code: string;
   id?: string | null;
   blockName?: string | null;
   blockType: 'code';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "DownloadBlock".
+ */
+export interface DownloadBlock {
+  title: string;
+  description?: string | null;
+  file: number | Media;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'download';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ExerciseBlock".
+ */
+export interface ExerciseBlock {
+  title: string;
+  description?: string | null;
+  mode: 'checklist' | 'pipeline';
+  items: {
+    label: string;
+    explanation: string;
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'exercise';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

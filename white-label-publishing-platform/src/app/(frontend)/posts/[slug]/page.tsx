@@ -1,6 +1,12 @@
+import { ReaderTools } from '@/components/Editorial/ReaderTools'
+import { Community } from '@/components/Editorial/Community'
+import { PostCards } from '@/components/Editorial/PostCards'
+import { YouTubeEmbed } from '@/components/YouTubeEmbed'
+import { Media } from '@/components/Media'
+import Link from 'next/link'
+import '@/components/Editorial/editorial.css'
 import type { Metadata } from 'next'
 
-import { RelatedPosts } from '@/blocks/RelatedPosts/Component'
 import { PayloadRedirects } from '@/components/PayloadRedirects'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
@@ -10,7 +16,6 @@ import RichText from '@/components/RichText'
 
 import type { Post } from '@/payload-types'
 
-import { PostHero } from '@/heros/PostHero'
 import { generateMeta } from '@/utilities/generateMeta'
 import PageClient from './page.client'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
@@ -38,28 +43,66 @@ export default async function Post({ params: paramsPromise }: Args) {
 
   if (!post) return <PayloadRedirects url={url} />
 
+  const payload = await getPayload({ config: configPromise })
+  const chosen = (post.relatedPosts || []).map((p) => (typeof p === 'object' ? p.id : p))
+  const related = await payload.find({
+    collection: 'posts',
+    overrideAccess: false,
+    draft: false,
+    where: {
+      and: [
+        { id: { not_equals: post.id } },
+        { _status: { equals: 'published' } },
+        ...(chosen.length
+          ? [{ id: { in: chosen } }]
+          : post.categories?.length
+            ? [
+                {
+                  categories: {
+                    in: post.categories.map((c) => (typeof c === 'object' ? c.id : c)),
+                  },
+                },
+              ]
+            : []),
+      ],
+    },
+    sort: '-publishedAt',
+    limit: 3,
+    depth: 1,
+  })
   return (
-    <article className="pt-16 pb-16">
+    <article className="editorial-shell">
       <PageClient />
-
-      {/* Allows redirects for valid pages too */}
       <PayloadRedirects disableNotFound url={url} />
-
       {draft && <LivePreviewListener />}
-
-      <PostHero post={post} />
-
-      <div className="flex flex-col items-center gap-4 pt-8">
-        <div className="container">
-          <RichText className="max-w-[48rem] mx-auto" data={post.content} enableGutter={false} />
-          {post.relatedPosts && post.relatedPosts.length > 0 && (
-            <RelatedPosts
-              className="mt-12 max-w-[52rem] lg:grid lg:grid-cols-subgrid col-start-1 col-span-3 grid-rows-[2fr]"
-              docs={post.relatedPosts.filter((post) => typeof post === 'object')}
-            />
-          )}
+      <Link href="/posts">← Todos os artigos</Link>
+      <h1 className="editorial-title">{post.title}</h1>
+      <p className="text-lg mb-4">{post.meta?.description}</p>
+      {post.publishedAt && (
+        <time dateTime={post.publishedAt}>
+          {new Date(post.publishedAt).toLocaleDateString('pt-BR', { timeZone: 'UTC' })}
+        </time>
+      )}
+      {post.videoURL ? (
+        <YouTubeEmbed url={post.videoURL} showArticleLink={false} />
+      ) : post.heroImage && typeof post.heroImage === 'object' ? (
+        <Media className="my-8" resource={post.heroImage} />
+      ) : null}
+      <div className="editorial-reading mt-10">
+        <div>
+          <div id="article-body">
+            <RichText data={post.content} enableGutter={false} />
+          </div>
+          {!draft && <Community postId={post.id} />}
         </div>
+        <ReaderTools />
       </div>
+      {related.docs.length > 0 && (
+        <section className="editorial-related">
+          <h2 className="text-2xl font-bold mb-6">Continue lendo</h2>
+          <PostCards posts={related.docs} />
+        </section>
+      )}
     </article>
   )
 }
@@ -70,7 +113,7 @@ export async function generateMetadata({ params: paramsPromise }: Args): Promise
   const decodedSlug = decodeURIComponent(slug)
   const post = await queryPostBySlug({ slug: decodedSlug })
 
-  return generateMeta({ doc: post })
+  return generateMeta({ doc: post, collection: 'posts' })
 }
 
 const queryPostBySlug = cache(async ({ slug }: { slug: string }) => {

@@ -29,6 +29,7 @@ RUN --mount=type=secret,id=DATABASE_URL \
   --mount=type=secret,id=NEXT_PUBLIC_SERVER_URL \
   --mount=type=secret,id=CRON_SECRET \
   --mount=type=secret,id=PREVIEW_SECRET \
+  --mount=type=secret,id=NEXT_PUBLIC_TURNSTILE_SITE_KEY \
   --mount=type=secret,id=S3_ENABLED \
   --mount=type=secret,id=S3_BUCKET \
   --mount=type=secret,id=S3_REGION \
@@ -39,7 +40,7 @@ RUN --mount=type=secret,id=DATABASE_URL \
   export NEXT_PUBLIC_SERVER_URL="$(cat /run/secrets/NEXT_PUBLIC_SERVER_URL)" && \
   export CRON_SECRET="$(cat /run/secrets/CRON_SECRET)" && \
   export PREVIEW_SECRET="$(cat /run/secrets/PREVIEW_SECRET)" && \
-  for name in S3_ENABLED S3_BUCKET S3_REGION S3_ACCESS_KEY_ID S3_SECRET_ACCESS_KEY; do \
+  for name in NEXT_PUBLIC_TURNSTILE_SITE_KEY S3_ENABLED S3_BUCKET S3_REGION S3_ACCESS_KEY_ID S3_SECRET_ACCESS_KEY; do \
     if [ -f "/run/secrets/$name" ]; then export "$name=$(cat "/run/secrets/$name")"; fi; \
   done && \
   corepack enable pnpm && \

@@ -1,3 +1,6 @@
+import { Download } from '@/blocks/Download/Component'
+import { Exercise } from '@/blocks/Exercise/Component'
+import type { DownloadBlock, ExerciseBlock } from '@/payload-types'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import {
   DefaultNodeTypes,
@@ -24,7 +27,14 @@ import { cn } from '@/utilities/ui'
 
 type NodeTypes =
   | DefaultNodeTypes
-  | SerializedBlockNode<CTABlockProps | MediaBlockProps | BannerBlockProps | CodeBlockProps>
+  | SerializedBlockNode<
+      | CTABlockProps
+      | MediaBlockProps
+      | BannerBlockProps
+      | CodeBlockProps
+      | DownloadBlock
+      | ExerciseBlock
+    >
 
 const internalDocToHref = ({ linkNode }: { linkNode: SerializedLinkNode }) => {
   const { value, relationTo } = linkNode.fields.doc!
@@ -39,6 +49,8 @@ const jsxConverters: JSXConvertersFunction<NodeTypes> = ({ defaultConverters }) 
   ...defaultConverters,
   ...LinkJSXConverter({ internalDocToHref }),
   blocks: {
+    download: ({ node }) => <Download {...node.fields} />,
+    exercise: ({ node }) => <Exercise {...node.fields} />,
     banner: ({ node }) => <BannerBlock className="col-start-2 mb-4" {...node.fields} />,
     mediaBlock: ({ node }) => (
       <MediaBlock

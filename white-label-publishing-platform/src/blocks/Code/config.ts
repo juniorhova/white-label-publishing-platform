@@ -9,6 +9,7 @@ export const Code: Block = {
       type: 'select',
       defaultValue: 'typescript',
       options: [
+        ...['bash', 'json', 'yaml', 'python', 'text'].map((value) => ({ label: value, value })),
         {
           label: 'Typescript',
           value: 'typescript',

@@ -1,62 +1,82 @@
-import type { Metadata } from 'next/types'
-
-import { CollectionArchive } from '@/components/CollectionArchive'
-import { PageRange } from '@/components/PageRange'
-import { Pagination } from '@/components/Pagination'
-import configPromise from '@payload-config'
-import { getPayload } from 'payload'
-import React from 'react'
-import PageClient from './page.client'
-
+import type { Metadata } from 'next'
+import { getPayload, type Where } from 'payload'
+import config from '@payload-config'
+import Link from 'next/link'
+import { PostCards } from '@/components/Editorial/PostCards'
 export const dynamic = 'force-dynamic'
-
-export default async function Page() {
-  const payload = await getPayload({ config: configPromise })
-
-  const posts = await payload.find({
-    collection: 'posts',
-    depth: 1,
-    limit: 12,
-    overrideAccess: false,
-    select: {
-      title: true,
-      slug: true,
-      categories: true,
-      meta: true,
-    },
-  })
-
-  return (
-    <div className="pt-24 pb-24">
-      <PageClient />
-      <div className="container mb-16">
-        <div className="prose dark:prose-invert max-w-none">
-          <h1>Posts</h1>
-        </div>
-      </div>
-
-      <div className="container mb-8">
-        <PageRange
-          collection="posts"
-          currentPage={posts.page}
-          limit={12}
-          totalDocs={posts.totalDocs}
-        />
-      </div>
-
-      <CollectionArchive posts={posts.docs} />
-
-      <div className="container">
-        {posts.totalPages > 1 && posts.page && (
-          <Pagination page={posts.page} totalPages={posts.totalPages} />
-        )}
-      </div>
-    </div>
-  )
+export const metadata: Metadata = {
+  title: 'Artigos — Junior Hova',
+  description: 'Aprendizados sobre Cloud, DevOps, engenharia de software e carreira.',
 }
-
-export function generateMetadata(): Metadata {
-  return {
-    title: `Payload Website Template Posts`,
-  }
+export default async function PostsPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ category?: string; q?: string; page?: string }>
+}) {
+  const params = await searchParams
+  const category = /^\d+$/.test(params.category || '') ? params.category! : ''
+  const q = (params.q || '').slice(0, 120).trim()
+  const page = Math.max(1, Math.min(10000, Number(params.page) || 1))
+  const payload = await getPayload({ config })
+  const conditions: Where[] = [{ _status: { equals: 'published' } }]
+  if (category) conditions.push({ categories: { contains: Number(category) } })
+  if (q) conditions.push({ or: [{ title: { like: q } }, { 'meta.description': { like: q } }] })
+  const [posts, categories] = await Promise.all([
+    payload.find({
+      collection: 'posts',
+      overrideAccess: false,
+      draft: false,
+      where: { and: conditions },
+      sort: '-publishedAt',
+      limit: 12,
+      page: Math.floor(page),
+      depth: 1,
+    }),
+    payload.find({ collection: 'categories', overrideAccess: false, limit: 100, sort: 'title' }),
+  ])
+  const url = (c: string, p = 1) =>
+    `/posts?${new URLSearchParams({ ...(c ? { category: c } : {}), ...(q ? { q } : {}), page: String(p) })}`
+  return (
+    <main className="editorial-shell">
+      <h1 className="editorial-title">Artigos</h1>
+      <p>Compartilhando o que aprendi.</p>
+      <form action="/posts">
+        <label htmlFor="article-search">Buscar artigos por título ou descrição</label>
+        <input
+          className="editorial-input"
+          id="article-search"
+          name="q"
+          defaultValue={q}
+          maxLength={120}
+          type="search"
+        />
+        {category && <input type="hidden" name="category" value={category} />}
+        <button className="editorial-action" type="submit">
+          Buscar
+        </button>
+      </form>
+      <nav className="editorial-filters" aria-label="Categorias">
+        <Link href={url('')} aria-current={!category ? 'page' : undefined}>
+          Todos
+        </Link>
+        {categories.docs.map((c) => (
+          <Link
+            key={c.id}
+            href={url(String(c.id))}
+            aria-current={category === String(c.id) ? 'page' : undefined}
+          >
+            {c.title}
+          </Link>
+        ))}
+      </nav>
+      <p className="mb-6" role="status">
+        {posts.totalDocs} {posts.totalDocs === 1 ? 'artigo encontrado' : 'artigos encontrados'}
+      </p>
+      <PostCards posts={posts.docs} />
+      <nav className="editorial-filters" aria-label="Paginação">
+        {posts.hasPrevPage && <Link href={url(category, posts.prevPage!)}>← Anterior</Link>}
+        {posts.hasNextPage && <Link href={url(category, posts.nextPage!)}>Próxima →</Link>}
+      </nav>
+    </main>
+  )
 }

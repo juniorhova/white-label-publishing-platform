@@ -1,5 +1,7 @@
 # Payload Website Template
 
+Artigos, importação Markdown, PDFs e moderação: [Guia editorial](docs/editorial-publishing.md).
+
 Domain cutover preparation (no production changes): [Portfolio domain migration](docs/portfolio-domain-migration.md).
 
 Private S3 uploads through the native Payload admin, same-domain file delivery,

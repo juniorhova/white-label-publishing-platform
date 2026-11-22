@@ -1,3 +1,6 @@
+import { Download } from '../../blocks/Download/config'
+import { Exercise } from '../../blocks/Exercise/config'
+import { getYouTubeVideoID } from '../../utilities/youtube'
 import type { CollectionConfig } from 'payload'
 
 import {
@@ -67,6 +70,13 @@ export const Posts: CollectionConfig<'posts'> = {
   },
   fields: [
     {
+      name: 'videoURL',
+      type: 'text',
+      label: 'Vídeo do YouTube',
+      validate: (value: string | null | undefined) =>
+        !value || Boolean(getYouTubeVideoID(value)) || 'Informe um vídeo HTTPS válido do YouTube.',
+    },
+    {
       name: 'title',
       type: 'text',
       required: true,
@@ -89,7 +99,7 @@ export const Posts: CollectionConfig<'posts'> = {
                   return [
                     ...rootFeatures,
                     HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
-                    BlocksFeature({ blocks: [Banner, Code, MediaBlock] }),
+                    BlocksFeature({ blocks: [Banner, Code, MediaBlock, Download, Exercise] }),
                     FixedToolbarFeature(),
                     InlineToolbarFeature(),
                     HorizontalRuleFeature(),
@@ -217,6 +227,23 @@ export const Posts: CollectionConfig<'posts'> = {
     slugField(),
   ],
   hooks: {
+    beforeDelete: [
+      async ({ req, id }) => {
+        // Child records must be removed before the required post relation is deleted.
+        await req.payload.delete({
+          collection: 'comments',
+          where: { post: { equals: id } },
+          overrideAccess: true,
+          req,
+        })
+        await req.payload.delete({
+          collection: 'reactions',
+          where: { post: { equals: id } },
+          overrideAccess: true,
+          req,
+        })
+      },
+    ],
     afterChange: [revalidatePost],
     afterRead: [populateAuthors],
     afterDelete: [revalidateDelete],
