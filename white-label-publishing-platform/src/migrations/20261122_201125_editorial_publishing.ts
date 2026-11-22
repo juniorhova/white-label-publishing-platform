@@ -5,26 +5,26 @@ export async function up({ db }: MigrateUpArgs): Promise<void> {
    CREATE TYPE "public"."enum_comments_status" AS ENUM('pending', 'approved', 'rejected');
   CREATE TYPE "public"."enum_reactions_kind" AS ENUM('like', 'helpful', 'insightful');
   CREATE TABLE "comments" (
-  	"id" serial PRIMARY KEY NOT NULL,
-  	"post_id" integer NOT NULL,
-  	"name" varchar NOT NULL,
-  	"text" varchar NOT NULL,
-  	"status" "enum_comments_status" DEFAULT 'pending' NOT NULL,
-  	"visitor_hash" varchar NOT NULL,
-  	"updated_at" timestamp(3) with time zone DEFAULT now() NOT NULL,
-  	"created_at" timestamp(3) with time zone DEFAULT now() NOT NULL
+    "id" serial PRIMARY KEY NOT NULL,
+    "post_id" integer NOT NULL,
+    "name" varchar NOT NULL,
+    "text" varchar NOT NULL,
+    "status" "enum_comments_status" DEFAULT 'pending' NOT NULL,
+    "visitor_hash" varchar NOT NULL,
+    "updated_at" timestamp(3) with time zone DEFAULT now() NOT NULL,
+    "created_at" timestamp(3) with time zone DEFAULT now() NOT NULL
   );
-  
+
   CREATE TABLE "reactions" (
-  	"id" serial PRIMARY KEY NOT NULL,
-  	"post_id" integer NOT NULL,
-  	"kind" "enum_reactions_kind" NOT NULL,
-  	"visitor_hash" varchar NOT NULL,
-  	"key" varchar NOT NULL,
-  	"updated_at" timestamp(3) with time zone DEFAULT now() NOT NULL,
-  	"created_at" timestamp(3) with time zone DEFAULT now() NOT NULL
+    "id" serial PRIMARY KEY NOT NULL,
+    "post_id" integer NOT NULL,
+    "kind" "enum_reactions_kind" NOT NULL,
+    "visitor_hash" varchar NOT NULL,
+    "key" varchar NOT NULL,
+    "updated_at" timestamp(3) with time zone DEFAULT now() NOT NULL,
+    "created_at" timestamp(3) with time zone DEFAULT now() NOT NULL
   );
-  
+
   ALTER TABLE "posts" ADD COLUMN "video_u_r_l" varchar;
   ALTER TABLE "_posts_v" ADD COLUMN "version_video_u_r_l" varchar;
   ALTER TABLE "payload_locked_documents_rels" ADD COLUMN "comments_id" integer;
@@ -51,9 +51,9 @@ export async function down({ db }: MigrateDownArgs): Promise<void> {
    ALTER TABLE "comments" DISABLE ROW LEVEL SECURITY;
   ALTER TABLE "reactions" DISABLE ROW LEVEL SECURITY;
   ALTER TABLE "payload_locked_documents_rels" DROP CONSTRAINT "payload_locked_documents_rels_comments_fk";
-  
+
   ALTER TABLE "payload_locked_documents_rels" DROP CONSTRAINT "payload_locked_documents_rels_reactions_fk";
-  
+
   DROP INDEX "payload_locked_documents_rels_comments_id_idx";
   DROP INDEX "payload_locked_documents_rels_reactions_id_idx";
   ALTER TABLE "posts" DROP COLUMN "video_u_r_l";
