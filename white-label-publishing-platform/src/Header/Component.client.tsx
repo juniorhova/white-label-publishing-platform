@@ -1,5 +1,6 @@
 'use client'
 import { useHeaderTheme } from '@/providers/HeaderTheme'
+import { ThemeSelector } from '@/providers/Theme/ThemeSelector'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
@@ -40,6 +41,9 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
             junior<span className={styles.accent}>hova.</span>
           </span>
         </Link>
+        <div className="shrink-0 md:order-last">
+          <ThemeSelector />
+        </div>
         <HeaderNav data={data} />
       </div>
     </header>

@@ -17,7 +17,7 @@ A opção **Apresentação pessoal** reaproveita o grupo Hero, mídia e links ex
 5. Configure até dois links; o primeiro recebe destaque azul e o segundo contorno. Configure os perfis sociais nos campos próprios. Campos vazios não geram links fictícios.
 6. Cole uma URL de vídeo no campo **Vídeo em destaque — URL do YouTube**. Não cole HTML/iframe. Formatos watch, youtu.be, shorts e embed são aceitos e normalizados para um ID de vídeo.
 7. Salve rascunho e use a prévia antes de publicar. Publicar aqui, no banco local, não publica no domínio de produção.
-8. Menu e rodapé continuam em Globals → Header e Footer. Na demonstração: Início, Vídeos (`/#videos`), Artigos (`/posts`) e Sobre (`/#sobre`).
+8. O menu é editável em Globals → Header. O rodapé público mostra os créditos do site e a seleção de tema fica no cabeçalho.
 
 Os blocos de conteúdo abaixo do Hero permanecem editáveis. A âncora `videos` marca o início deles. O bloco Content ganhou campos opcionais de apresentação (`Colunas padrão`, `Cartões de conteúdo`, `Sobre — painel em destaque`) e título de seção; os campos antigos permanecem. Nas colunas dos cartões, uma URL opcional de YouTube busca automaticamente título e thumbnail. Texto e links continuam usando os campos nativos existentes. A seção Sobre gera a âncora `sobre`.
 
