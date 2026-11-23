@@ -86,6 +86,10 @@
   gap: 48px;
   align-items: start;
 }
+.editorial-reading:not(:has(.reader-nav)) {
+  display: block;
+  max-width: 75ch;
+}
 .editorial-reading aside.reader-nav {
   position: sticky;
   top: 100px;

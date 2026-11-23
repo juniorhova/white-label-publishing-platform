@@ -16,17 +16,23 @@ export async function YouTubeEmbed({
 }) {
   const video = await getYouTubeMetadata(url)
   if (!video) return null
+  if (!showArticleLink) {
+    return (
+      <div className="my-6 max-w-2xl">
+        <YouTubePlayer key={video.id} {...video} showTitle={false} />
+      </div>
+    )
+  }
+
   const payload = await getPayload({ config })
-  const related = showArticleLink
-    ? await payload.find({
-        collection: 'posts',
-        overrideAccess: false,
-        draft: false,
-        where: { and: [{ videoURL: { equals: url } }, { _status: { equals: 'published' } }] },
-        limit: 1,
-        depth: 0,
-      })
-    : { docs: [] }
+  const related = await payload.find({
+    collection: 'posts',
+    overrideAccess: false,
+    draft: false,
+    where: { and: [{ videoURL: { equals: url } }, { _status: { equals: 'published' } }] },
+    limit: 1,
+    depth: 0,
+  })
   const post = related.docs[0]
   return (
     <div className="personal-video-grid">

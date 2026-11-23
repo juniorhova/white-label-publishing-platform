@@ -95,7 +95,7 @@ export default async function Post({ params: paramsPromise }: Args) {
           </div>
           {!draft && <Community postId={post.id} />}
         </div>
-        <ReaderTools />
+        <ReaderTools key={post.id} />
       </div>
       {related.docs.length > 0 && (
         <section className="editorial-related">
