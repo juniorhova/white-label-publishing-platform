@@ -37,24 +37,27 @@ export default async function PostsPage({
   const url = (c: string, p = 1) =>
     `/posts?${new URLSearchParams({ ...(c ? { category: c } : {}), ...(q ? { q } : {}), page: String(p) })}`
   return (
-    <main className="editorial-shell">
+    <main className="editorial-shell editorial-index">
       <h1 className="editorial-title">Artigos</h1>
       <p>Compartilhando o que aprendi.</p>
-      <form action="/posts">
-        <label htmlFor="article-search">Buscar artigos por título ou descrição</label>
-        <input
-          className="editorial-input"
-          id="article-search"
-          name="q"
-          defaultValue={q}
-          maxLength={120}
-          type="search"
-        />
-        {category && <input type="hidden" name="category" value={category} />}
-        <button className="editorial-action" type="submit">
-          Buscar
-        </button>
-      </form>
+      <details className="editorial-search" open={Boolean(q)}>
+        <summary>Buscar artigos</summary>
+        <form action="/posts">
+          <label htmlFor="article-search">Buscar artigos por título ou descrição</label>
+          <input
+            className="editorial-input"
+            id="article-search"
+            name="q"
+            defaultValue={q}
+            maxLength={120}
+            type="search"
+          />
+          {category && <input type="hidden" name="category" value={category} />}
+          <button className="editorial-action" type="submit">
+            Buscar
+          </button>
+        </form>
+      </details>
       <nav className="editorial-filters" aria-label="Categorias">
         <Link href={url('')} aria-current={!category ? 'page' : undefined}>
           Todos

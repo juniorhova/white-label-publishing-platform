@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
+import './player.css'
 import { Play } from 'lucide-react'
 
 export function YouTubePlayer({

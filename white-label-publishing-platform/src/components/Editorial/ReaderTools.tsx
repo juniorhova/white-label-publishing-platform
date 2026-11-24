@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 type Heading = { id: string; title: string; level: number }
 export function ReaderTools() {
   const [headings, setHeadings] = useState<Heading[]>([])
+  const [toolsOpen, setToolsOpen] = useState(false)
   const [active, setActive] = useState('')
   const [query, setQuery] = useState('')
   const [matches, setMatches] = useState<{ id: string; text: string }[]>([])
@@ -68,41 +69,52 @@ export function ReaderTools() {
 
   return (
     <aside className="reader-nav" aria-label="Ferramentas de leitura">
-      <label htmlFor="search-this-article">Buscar neste artigo</label>
-      <input
-        className="editorial-input"
-        id="search-this-article"
-        type="search"
-        maxLength={120}
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
-      {query.trim().length >= 2 && (
-        <div>
-          <p role="status">
-            {matches.length}
-            {matches.length === 30 ? '+' : ''} trechos encontrados
-          </p>
-          {matches.map((m) => (
-            <a className="reader-result" key={m.id} href={`#${m.id}`}>
-              {m.text}
+      <button
+        className="reader-toggle"
+        type="button"
+        aria-controls="article-tools"
+        aria-expanded={toolsOpen}
+        onClick={() => setToolsOpen(!toolsOpen)}
+      >
+        Sumário e busca
+      </button>
+      <div id="article-tools" data-open={toolsOpen}>
+        <label htmlFor="search-this-article">Buscar neste artigo</label>
+        <input
+          className="editorial-input"
+          id="search-this-article"
+          type="search"
+          maxLength={120}
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+        {query.trim().length >= 2 && (
+          <div>
+            <p role="status">
+              {matches.length}
+              {matches.length === 30 ? '+' : ''} trechos encontrados
+            </p>
+            {matches.map((m) => (
+              <a className="reader-result" key={m.id} href={`#${m.id}`}>
+                {m.text}
+              </a>
+            ))}
+          </div>
+        )}
+        <h2 className="font-bold my-4">Nesta página</h2>
+        <nav>
+          {headings.map((h) => (
+            <a
+              style={{ paddingLeft: Math.max(0, h.level - 2) * 12 + 12 }}
+              key={h.id}
+              href={`#${h.id}`}
+              aria-current={active === h.id ? 'location' : undefined}
+            >
+              {h.title}
             </a>
           ))}
-        </div>
-      )}
-      <h2 className="font-bold my-4">Nesta página</h2>
-      <nav>
-        {headings.map((h) => (
-          <a
-            style={{ paddingLeft: Math.max(0, h.level - 2) * 12 + 12 }}
-            key={h.id}
-            href={`#${h.id}`}
-            aria-current={active === h.id ? 'location' : undefined}
-          >
-            {h.title}
-          </a>
-        ))}
-      </nav>
+        </nav>
+      </div>
     </aside>
   )
 }
