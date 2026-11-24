@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { getPayload, type Where } from 'payload'
 import config from '@payload-config'
 import Link from 'next/link'
+import { SearchIcon } from 'lucide-react'
 import { PostCards } from '@/components/Editorial/PostCards'
 export const dynamic = 'force-dynamic'
 export const metadata: Metadata = {
@@ -38,10 +39,14 @@ export default async function PostsPage({
     `/posts?${new URLSearchParams({ ...(c ? { category: c } : {}), ...(q ? { q } : {}), page: String(p) })}`
   return (
     <main className="editorial-shell editorial-index">
-      <h1 className="editorial-title">Artigos</h1>
-      <p>Compartilhando o que aprendi.</p>
+      <div className="editorial-index-heading">
+        <h1 className="editorial-title">Artigos</h1>
+        <p>Cloud, DevOps e carreira internacional.</p>
+      </div>
       <details className="editorial-search" open={Boolean(q)}>
-        <summary>Buscar artigos</summary>
+        <summary>
+          <SearchIcon size={16} aria-hidden="true" /> Buscar artigos
+        </summary>
         <form action="/posts">
           <label htmlFor="article-search">Buscar artigos por título ou descrição</label>
           <input
@@ -58,7 +63,7 @@ export default async function PostsPage({
           </button>
         </form>
       </details>
-      <nav className="editorial-filters" aria-label="Categorias">
+      <nav className="editorial-filters" aria-label="Categorias" tabIndex={0}>
         <Link href={url('')} aria-current={!category ? 'page' : undefined}>
           Todos
         </Link>
@@ -72,9 +77,11 @@ export default async function PostsPage({
           </Link>
         ))}
       </nav>
-      <p className="mb-6" role="status">
-        {posts.totalDocs} {posts.totalDocs === 1 ? 'artigo encontrado' : 'artigos encontrados'}
-      </p>
+      {(category || q || !posts.totalDocs) && (
+        <p className="mb-6 editorial-muted" role="status">
+          {posts.totalDocs} {posts.totalDocs === 1 ? 'artigo encontrado' : 'artigos encontrados'}
+        </p>
+      )}
       <PostCards posts={posts.docs} />
       <nav className="editorial-filters" aria-label="Paginação">
         {posts.hasPrevPage && <Link href={url(category, posts.prevPage!)}>← Anterior</Link>}

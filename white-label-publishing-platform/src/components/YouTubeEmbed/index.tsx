@@ -36,11 +36,10 @@ export async function YouTubeEmbed({
   const post = related.docs[0]
   return (
     <div className="personal-video-grid">
-      <YouTubePlayer key={video.id} {...video} showFallback={false} />
+      <YouTubePlayer key={video.id} {...video} showFallback={false} showTitle={false} />
       <div className="personal-video-copy">
-        <p className="personal-eyebrow">VÍDEO DO CANAL</p>
         <h3>{post ? <Link href={`/posts/${post.slug}`}>{post.title}</Link> : video.title}</h3>
-        {post && <Link href={`/posts/${post.slug}`}>Ler artigo e acessar materiais →</Link>}
+        {post && <Link href={`/posts/${post.slug}`}>Ler artigo →</Link>}
         {description && <p className="personal-video-description">{description}</p>}
         <a
           className="home-video-fallback"

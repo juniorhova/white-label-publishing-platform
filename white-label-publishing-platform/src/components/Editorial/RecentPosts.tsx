@@ -15,15 +15,17 @@ export async function RecentPosts() {
     depth: 1,
   })
   return (
-    <section className="editorial-shell" id="artigos" aria-labelledby="recent-posts-heading">
+    <section
+      className="editorial-shell editorial-recent"
+      id="artigos"
+      aria-labelledby="recent-posts-heading"
+    >
       <span id="videos" aria-hidden="true" />
-      <h2 className="text-2xl font-bold mb-6" id="recent-posts-heading">
-        Artigos recentes
-      </h2>
-      {result.docs.length > 0 && <PostCards posts={result.docs} />}
-      <p className="mt-6">
+      <div className="editorial-section-heading">
+        <h2 id="recent-posts-heading">Artigos recentes</h2>
         <Link href="/posts">Ver todos os artigos →</Link>
-      </p>
+      </div>
+      {result.docs.length > 0 && <PostCards posts={result.docs} />}
     </section>
   )
 }
