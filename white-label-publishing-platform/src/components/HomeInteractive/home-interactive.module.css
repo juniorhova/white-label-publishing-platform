@@ -707,3 +707,20 @@
     min-height: 0;
   }
 }
+
+@media (max-width: 700px) {
+  .roadmap {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .tools {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    min-width: 0;
+  }
+  .tools button:has(+ button + button) {
+    grid-column: 1 / -1;
+  }
+  .tools button {
+    white-space: normal;
+  }
+}
