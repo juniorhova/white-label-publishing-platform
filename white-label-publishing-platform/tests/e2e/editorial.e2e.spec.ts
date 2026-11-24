@@ -1,5 +1,28 @@
 import { test, expect } from '@playwright/test'
 
+test('mantém a listagem de artigos dentro da tela no celular', async ({ page }) => {
+  test.skip(!test.info().project.use.isMobile, 'Verificação da listagem em telas pequenas.')
+
+  for (const width of [320, 375, 390, 430, 700]) {
+    await page.setViewportSize({ width, height: 844 })
+    await page.goto('/posts')
+
+    const main = page.getByRole('main')
+    await expect(main.getByRole('heading', { name: 'Artigos', exact: true })).toBeVisible()
+    await expect(main.getByRole('navigation', { name: 'Categorias' })).toBeVisible()
+
+    expect(
+      await page.evaluate(() => document.documentElement.scrollWidth),
+      `rolagem horizontal do documento em ${width}px`,
+    ).toBe(await page.evaluate(() => document.documentElement.clientWidth))
+
+    const columnTracks = await main
+      .locator('.editorial-grid')
+      .evaluate((grid) => getComputedStyle(grid).gridTemplateColumns)
+    expect(columnTracks).toMatch(/^\d+(?:\.\d+)?px$/)
+  }
+})
+
 test('importar rascunho, publicar, ler e moderar comentário', async ({
   page,
   request,

@@ -3,6 +3,10 @@
   margin: 0 auto;
   padding: 48px 24px;
 }
+.editorial-index {
+  width: 100%;
+  min-width: 0;
+}
 .editorial-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
@@ -22,6 +26,7 @@
   font-weight: 700;
 }
 .editorial-card img {
+  height: auto;
   border-radius: 10px;
   aspect-ratio: 16/9;
   object-fit: cover;
@@ -187,7 +192,11 @@
     margin-top: 12px;
     font-size: 14px;
   }
+  .editorial-index .editorial-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
   .editorial-index .editorial-filters {
+    max-width: 100%;
     flex-wrap: nowrap;
     overflow-x: auto;
     margin: 12px 0 20px;
@@ -212,7 +221,6 @@
     gap: 0;
   }
   .editorial-card-cover img {
-    aspect-ratio: 2.15;
     border-radius: 0;
   }
   .editorial-card-cover h3 {
