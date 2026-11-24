@@ -9,7 +9,11 @@ test('mantém a listagem de artigos dentro da tela no celular', async ({ page })
 
     const main = page.getByRole('main')
     await expect(main.getByRole('heading', { name: 'Artigos', exact: true })).toBeVisible()
-    await expect(main.getByRole('navigation', { name: 'Categorias' })).toBeVisible()
+    const categories = main.getByRole('navigation', { name: 'Categorias' })
+    await expect(categories).toBeVisible()
+    await expect(categories).toHaveCSS('scrollbar-width', 'none')
+    await expect(categories).toHaveCSS('overflow-x', 'auto')
+    await expect(page.getByRole('button', { name: 'Menu', exact: true })).toHaveCount(0)
 
     expect(
       await page.evaluate(() => document.documentElement.scrollWidth),

@@ -63,7 +63,11 @@ export default async function PostsPage({
           </button>
         </form>
       </details>
-      <nav className="editorial-filters" aria-label="Categorias" tabIndex={0}>
+      <nav
+        className="editorial-filters editorial-category-strip"
+        aria-label="Categorias"
+        tabIndex={0}
+      >
         <Link href={url('')} aria-current={!category ? 'page' : undefined}>
           Todos
         </Link>

@@ -186,13 +186,13 @@
   .editorial-index .editorial-grid {
     grid-template-columns: minmax(0, 1fr);
   }
-  .editorial-index .editorial-filters {
+  .editorial-index .editorial-category-strip {
     max-width: 100%;
     flex-wrap: nowrap;
     overflow-x: auto;
     margin: 12px 0 20px;
   }
-  .editorial-index .editorial-filters a {
+  .editorial-index .editorial-category-strip a {
     flex: none;
     font-size: 13px;
   }
@@ -354,6 +354,16 @@
 }
 
 @media (max-width: 700px) {
+  .editorial-category-strip,
+  .editorial-recent .editorial-grid {
+    scrollbar-width: none;
+  }
+
+  .editorial-category-strip::-webkit-scrollbar,
+  .editorial-recent .editorial-grid::-webkit-scrollbar {
+    display: none;
+  }
+
   .editorial-recent .editorial-grid {
     display: grid;
     grid-template-columns: none;

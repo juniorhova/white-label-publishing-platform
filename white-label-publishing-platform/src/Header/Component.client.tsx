@@ -19,7 +19,6 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
   /* Storing the value in a useState to avoid hydration errors */
   const [theme, setTheme] = useState<string | null>(null)
   const { headerTheme, setHeaderTheme } = useHeaderTheme()
-  const [menuPath, setMenuPath] = useState<string | null>(null)
   const pathname = usePathname()
   const showGlobalSearch = pathname !== '/posts'
 
@@ -52,23 +51,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
             Buscar
           </Link>
         )}
-        <button
-          type="button"
-          className={styles.menu}
-          aria-expanded={menuPath === pathname}
-          aria-controls="site-navigation"
-          onClick={() => setMenuPath(menuPath === pathname ? null : pathname)}
-        >
-          Menu
-        </button>
-        <div
-          className={styles.navigation}
-          id="site-navigation"
-          data-open={menuPath === pathname}
-          onClick={(event) => {
-            if ((event.target as HTMLElement).closest('a')) setMenuPath(null)
-          }}
-        >
+        <div className={styles.navigation}>
           <div className="shrink-0 md:order-last">
             <ThemeSelector />
           </div>
