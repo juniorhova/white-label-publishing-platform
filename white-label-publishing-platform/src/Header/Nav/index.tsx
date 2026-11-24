@@ -8,7 +8,10 @@ import { CMSLink } from '@/components/Link'
 import Link from 'next/link'
 import { SearchIcon } from 'lucide-react'
 
-export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
+export const HeaderNav: React.FC<{ data: HeaderType; showSearch: boolean }> = ({
+  data,
+  showSearch,
+}) => {
   const navItems = (data?.navItems || []).map(({ link }) => ({
     link:
       link.type === 'custom' && link.url === '/#videos' && link.label === 'Vídeos'
@@ -31,13 +34,15 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
           />
         )
       })}
-      <Link
-        href="/search"
-        className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4"
-      >
-        <span className="sr-only">Pesquisar</span>
-        <SearchIcon className="w-5 text-primary" />
-      </Link>
+      {showSearch && (
+        <Link
+          href="/search"
+          className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4"
+        >
+          <span className="sr-only">Pesquisar</span>
+          <SearchIcon className="w-5 text-primary" />
+        </Link>
+      )}
     </nav>
   )
 }

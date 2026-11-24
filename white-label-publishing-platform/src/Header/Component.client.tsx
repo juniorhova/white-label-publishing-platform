@@ -21,6 +21,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
   const { headerTheme, setHeaderTheme } = useHeaderTheme()
   const [menuPath, setMenuPath] = useState<string | null>(null)
   const pathname = usePathname()
+  const showGlobalSearch = pathname !== '/posts'
 
   useEffect(() => {
     setHeaderTheme(null)
@@ -45,10 +46,12 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
             junior<span className={styles.accent}>hova.</span>
           </span>
         </Link>
-        <Link className={styles.search} href="/search">
-          <SearchIcon size={15} aria-hidden="true" />
-          Buscar
-        </Link>
+        {showGlobalSearch && (
+          <Link className={styles.search} href="/search">
+            <SearchIcon size={15} aria-hidden="true" />
+            Buscar
+          </Link>
+        )}
         <button
           type="button"
           className={styles.menu}
@@ -69,7 +72,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
           <div className="shrink-0 md:order-last">
             <ThemeSelector />
           </div>
-          <HeaderNav data={data} />
+          <HeaderNav data={data} showSearch={showGlobalSearch} />
         </div>
       </div>
     </header>

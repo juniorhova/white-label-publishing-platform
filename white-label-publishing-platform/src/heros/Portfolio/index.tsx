@@ -35,7 +35,7 @@ export const PortfolioHero: React.FC<Page['hero']> = ({
               resource={media}
               priority
               imgClassName="portrait-image"
-              size="(max-width: 640px) 210px, 220px"
+              size="(max-width: 640px) 88px, 180px"
             />
           ) : (
             <Image
@@ -43,7 +43,7 @@ export const PortfolioHero: React.FC<Page['hero']> = ({
               alt="Junior Hova de jaqueta de couro em um mirante"
               priority
               className="portrait-image"
-              sizes="(max-width: 640px) 210px, 220px"
+              sizes="(max-width: 640px) 88px, 180px"
             />
           )}
         </div>
@@ -85,8 +85,7 @@ export const PortfolioHero: React.FC<Page['hero']> = ({
       {youtubeVideoURL && (
         <section className="personal-feature" aria-labelledby="featured-video-heading">
           <div className="personal-feature-heading">
-            <h2 id="featured-video-heading">O que estou compartilhando</h2>
-            <span>Vídeo em destaque</span>
+            <h2 id="featured-video-heading">Vídeo em destaque</h2>
           </div>
           <div className="personal-video-panel">
             <YouTubeEmbed url={youtubeVideoURL} description={youtubeDescription} />
