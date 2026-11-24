@@ -1,3 +1,4 @@
+import { InterviewArticleBody } from '@/components/Editorial/InterviewArticleBody'
 import { ReaderTools } from '@/components/Editorial/ReaderTools'
 import { Community } from '@/components/Editorial/Community'
 import { PostCards } from '@/components/Editorial/PostCards'
@@ -16,6 +17,7 @@ import RichText from '@/components/RichText'
 
 import type { Post } from '@/payload-types'
 
+import { getYouTubeVideoID } from '@/utilities/youtube'
 import { generateMeta } from '@/utilities/generateMeta'
 import PageClient from './page.client'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
@@ -91,7 +93,11 @@ export default async function Post({ params: paramsPromise }: Args) {
       <div className="editorial-reading mt-10">
         <div>
           <div id="article-body">
-            <RichText data={post.content} enableGutter={false} />
+            {post.videoURL && getYouTubeVideoID(post.videoURL) === 'coPH1HBW85A' ? (
+              <InterviewArticleBody content={post.content} />
+            ) : (
+              <RichText data={post.content} enableGutter={false} />
+            )}
           </div>
           {!draft && <Community postId={post.id} />}
         </div>

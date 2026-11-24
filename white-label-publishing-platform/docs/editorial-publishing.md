@@ -90,6 +90,15 @@ Simule novamente antes de `--apply`. Atualizar como rascunho preserva a publica�
 anterior até você publicar a nova versão. Histórico nativo de Versions permanece.
 A importação não faz upload de arquivos automaticamente: envie-os em Media primeiro.
 
+## Artigo das 27 entrevistas internacionais
+
+O manifesto está em `content/articles/27-entrevistas-internacionais.json`.
+Importe-o como rascunho pelo fluxo acima. O vídeo `coPH1HBW85A` habilita o
+formulário STAR logo após o título **Monte seu prompt de entrevista**. Se o título
+for removido ou renomeado no editor, o formulário aparece no fim do conteúdo.
+O formulário monta e copia o texto no navegador. As respostas ficam na sessão
+da página e não são enviadas ao site.
+
 ## PDFs no S3
 
 O bloco aceita somente `application/pdf`, validado também no servidor. O link aponta
